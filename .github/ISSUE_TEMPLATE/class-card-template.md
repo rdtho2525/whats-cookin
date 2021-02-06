@@ -2,7 +2,7 @@
 name: Class Card Template
 about: Standard for features/fixes
 title: ''
-labels: bug, enhancement, help wanted, question
+labels: ''
 assignees: ''
 
 ---
