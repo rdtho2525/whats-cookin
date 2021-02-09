@@ -33,40 +33,24 @@ describe('Recipe', () => {
     expect(recipe.ingredients).to.equal(ingredients1);
   }); 
 
-  // it('should return a list of ingredient names', () => {
-  //   const ingredients = [
-  //     {
-  //       "id": 20081,
-  //       "quantity": {
-  //         "amount": 1.5,
-  //         "unit": "c"
-  //       }
-  //     },
-  //     {
-  //       "id": 18372,
-  //       "quantity": {
-  //         "amount": 0.5,
-  //         "unit": "tsp"
-  //       }
-  //     },
-  //     {
-  //       "id": 1123,
-  //       "quantity": {
-  //         "amount": 1,
-  //         "unit": "large"
-  //       }
-  //     },
-  //     {
-  //       "id": 19335,
-  //       "quantity": {
-  //         "amount": 0.5,
-  //         "unit": "c"
-  //       }
-  //     }
-  //   ];
-  //   const recipe = new Recipe(247, "https://spoonacular.com/recipeImages/595736-556x370.jpg", ingredients);
-  //   expect(getIngredientNames()).to.equal();
-  // }); 
+  it('should have an array of tags', () => {
+    const recipe = new Recipe(recipeData[0]);
+    const tags1 = recipeData[0].tags;
+    expect(recipe.tags).to.equal(tags1);
+  });
+
+  it('should have a name', () => {
+    const recipe = new Recipe(recipeData[0]);
+    expect(recipe.name).to.equal("Loaded Chocolate Chip Pudding Cookie Cups");
+  }); 
+
+  it('should have instructions', () => {
+    const recipe = new Recipe(recipeData[0]);
+    const instructions1 = recipeData[0].instructions;
+    expect(recipe.instructions).to.equal(instructions1);
+  });
+  
+
 
 });
 

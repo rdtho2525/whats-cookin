@@ -3,6 +3,9 @@ class Recipe {
     this.id = recipeObject.id;
     this.image = recipeObject.image;
     this.ingredients = recipeObject.ingredients;
+    this.tags = recipeObject.tags;
+    this.name = recipeObject.name;
+    this.instructions = recipeObject.instructions;
   }
 }
 
