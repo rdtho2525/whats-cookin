@@ -26,6 +26,10 @@ class Recipe {
 
     return cost
   }
+
+  getInstructions() {
+    return this.instructions
+  }
 }
 
 
