@@ -52,9 +52,21 @@ describe('Recipe', () => {
 
   it('should be able to return a list of ingredient names', () => {
     const recipe = new Recipe(recipeData[0]);
-    expect(recipe.getIngredientNames()).to.equal();
+    // console.log(recipe.getIngredientNames());
+    expect(recipe.getIngredientNames().length).to.equal(recipe.ingredients.length);
   });
 
+  it('should be able to calculate the total cost of ingredients required', () => {
+    const recipe = new Recipe(recipeData[0]);
+    console.log(recipe.getTotalCostOfIngredients());
+    expect(recipe.getTotalCostOfIngredients()).to.equal(177.75);
+  });
+
+  it('should be able to return recipe\'s instructions'), () => {
+    const recipe = new Recipe(recipeData[0]);
+    console.log(recipe.getInstructions());
+    expect(recipe.getInstructions()).to.equal();
+  });
 
 });
 
