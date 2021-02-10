@@ -16,8 +16,16 @@ describe('RecipeRepo', () => {
     expect(recipeRepo).to.be.an.instanceof(RecipeRepo);
   }); 
 
-  // it('should have an id property', () => {
-  //   expect(recipe.id).to.equal(595736);
-  // }); 
+  it('should have a repository of recipes', () => {
+    const recipeRepo = new RecipeRepo()
+    expect(recipeRepo.recipes).to.exist;
+  });
+
+  it('should populate the list of recipes upon instantiation', () => {
+    const recipeRepo = new RecipeRepo()
+    expect(recipeRepo.recipes.length).to.equal(recipeData.length);
+    expect(recipeRepo.recipes[7].id).to.equal(recipeData[7].id);
+  });
+
 
 });
