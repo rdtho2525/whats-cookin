@@ -49,7 +49,11 @@ describe('Recipe', () => {
     const instructions1 = recipeData[0].instructions;
     expect(recipe.instructions).to.equal(instructions1);
   });
-  
+
+  it('should be able to return a list of ingredient names', () => {
+    const recipe = new Recipe(recipeData[0]);
+    expect(recipe.getIngredientNames()).to.equal();
+  });
 
 
 });

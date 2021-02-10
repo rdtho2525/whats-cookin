@@ -7,6 +7,14 @@ class Recipe {
     this.name = recipeObject.name;
     this.instructions = recipeObject.instructions;
   }
+  getIngredientNames() {
+    //iterate through this.ingredients
+    //for each ingredient, push the ingredient name matching the id to an array
+    //return array
+    let names = this.ingredients.map(ingredient => {
+      ingredientData[]
+    })
+  }
 }
 
 
