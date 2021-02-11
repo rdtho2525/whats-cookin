@@ -27,5 +27,21 @@ describe('RecipeRepo', () => {
     expect(recipeRepo.recipes[7].id).to.equal(recipeData[7].id);
   });
 
+  it('should be able to filter recipes by tag', () => {
+    const recipeRepo = new RecipeRepo();
+
+    const filteredData1 = recipeRepo.filterByTag('antipasti');
+    expect(filteredData1.length).to.equal(9);
+    const filteredData2 = recipeRepo.filterByTag('main course, dinner');
+    expect(filteredData2.length).to.equal(12);
+  });
+
+  it('should be able to remove duplicates from filtered data', () => {
+    const recipeRepo = new RecipeRepo();
+
+    const filteredData2 = recipeRepo.removeDuplicates([1, 2, 3, 3, 3]);
+    expect(filteredData2).to.deep.equal([1, 2, 3]);
+  });
+  
 
 });
