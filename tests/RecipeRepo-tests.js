@@ -43,5 +43,12 @@ describe('RecipeRepo', () => {
     expect(filteredData2).to.deep.equal([1, 2, 3]);
   });
   
+  it('should be able to filter recipes by name', () => {
+    const recipeRepo = new RecipeRepo();
 
+    const filteredData1 = recipeRepo.filterByName('Loaded Chocolate Chip Pudding Cookie Cups');
+    expect(filteredData1[0].id).to.equal(595736);
+    const filteredData2 = recipeRepo.filterByName('fish');
+    expect(filteredData2).to.deep.equal([]);
+  });
 });

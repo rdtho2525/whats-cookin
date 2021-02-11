@@ -11,6 +11,7 @@ class RecipeRepo {
     return recipes;
   }
 
+
   filterByTag(searchString) {
     const tags = searchString.split(',').map(tag => tag.trim());//separates by comma and trims whitespace
     
@@ -26,6 +27,23 @@ class RecipeRepo {
     return this.removeDuplicates(recipes);
   }
 
+
+  filterByName(searchString) {
+    const names = searchString.split(',').map(tag => tag.trim());
+
+    const recipes = this.recipes.reduce((matchingRecipes, recipe) => {
+      names.forEach(recipeName => {
+        if (recipe.name === recipeName) {
+          matchingRecipes.push(recipe);
+        }
+      })
+      return matchingRecipes;
+    }, [])
+
+    return this.removeDuplicates(recipes);
+  }
+
+
   removeDuplicates(data) {
     return data.filter((a, b) => data.indexOf(a) === b)
   }
@@ -36,10 +54,4 @@ class RecipeRepo {
 
 module.exports = RecipeRepo;
 
-//how to handle tags with multiple words
-//how do you search: 'main course' 'beef' together
-//do we return tag 1 and 2 ....or tag1 OR tag2
-
-//decisions: two+ tags would use AND -- requires recipe to have both
-//force a user to put a comma between tags
 
