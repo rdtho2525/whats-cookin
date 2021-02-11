@@ -4,7 +4,7 @@ const usersData = require('../data/users');
 class User {
   constructor(userObject) {
     this.name = userObject.name;
-
+    this.id = userObject.id;
   }
 }
 
