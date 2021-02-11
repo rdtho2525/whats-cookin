@@ -2,6 +2,7 @@ const User = require('../src/User');
 const chai = require('chai');
 const expect = chai.expect;
 const ingredientData = require('../data/ingredients');
+const usersData = require('../data/users');
 
 describe('User', () => {
 
@@ -11,13 +12,14 @@ describe('User', () => {
   });
 
   it('should be an instance of User', () => {
-    const user = new User();
+    const user = new User(usersData[0]);
     expect(user).to.be.an.instanceof(User);
   }); 
 
-  // it('should have a repository of recipes', () => {
-  //   expect(recipeRepo.recipes).to.exist;
-  // });
+  it('should have a name', () => {
+    const user = new User(usersData[0]);
+    expect(user.name).to.equal("Saige O'Kon");
+  });
 
   // it('should populate the list of recipes upon instantiation', () => {
   //   expect(recipeRepo.recipes.length).to.equal(recipeData.length);
