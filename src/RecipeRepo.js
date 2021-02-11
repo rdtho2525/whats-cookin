@@ -22,7 +22,7 @@ class RecipeRepo {
         }
       })
       return matchingRecipes
-    },[])
+    }, [])
 
     return this.removeDuplicates(recipes);
   }
@@ -48,8 +48,9 @@ class RecipeRepo {
     const recipes = this.recipes.reduce((matchingRecipes, recipe) => {
       const recipeIngredients = recipe.getIngredientNames();
       ingredients.forEach(ingredientName => {
-        if (recipeIngredients.includes(ingredientName))
-        matchingRecipes.push(recipe)
+        if (recipeIngredients.includes(ingredientName)) {
+          matchingRecipes.push(recipe);
+        }
       })
       return matchingRecipes;
     }, [])
