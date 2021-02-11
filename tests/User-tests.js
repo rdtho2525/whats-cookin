@@ -26,6 +26,10 @@ describe('User', () => {
     expect(user.id).to.equal(1);
   });
 
+  it('should have a pantry of ingredients', () => {
+    const user = new User(usersData[0]);
+    expect(user.pantry.length).to.equal(36);
+  });
   // it('should populate the list of recipes upon instantiation', () => {
   //   expect(recipeRepo.recipes.length).to.equal(recipeData.length);
   //   expect(recipeRepo.recipes[7].id).to.equal(recipeData[7].id);
