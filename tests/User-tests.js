@@ -30,6 +30,13 @@ describe('User', () => {
     const user = new User(usersData[0]);
     expect(user.pantry.length).to.equal(36);
   });
+
+  it('should start with an empty list of favorite recipes', () => {
+    const user = new User(usersData[0]);
+    expect(user.favoriteRecipes).to.deep.equal([]);
+  });
+
+
   // it('should populate the list of recipes upon instantiation', () => {
   //   expect(recipeRepo.recipes.length).to.equal(recipeData.length);
   //   expect(recipeRepo.recipes[7].id).to.equal(recipeData[7].id);
