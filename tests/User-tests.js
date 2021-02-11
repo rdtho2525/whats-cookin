@@ -36,6 +36,11 @@ describe('User', () => {
     expect(user.favoriteRecipes).to.deep.equal([]);
   });
 
+  it('should start with an empty list of recipes to cook', () => {
+    const user = new User(usersData[0]);
+    expect(user.recipesToCook).to.deep.equal([]);
+  });
+
 
   // it('should populate the list of recipes upon instantiation', () => {
   //   expect(recipeRepo.recipes.length).to.equal(recipeData.length);
