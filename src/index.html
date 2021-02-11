@@ -3,10 +3,40 @@
   <head>
     <meta charset="UTF-8">
     <title>Whats Cookin</title>
+    <link rel="stylesheet" href="./styless.css">
   </head>
   <body>
-    <h1>Whats Cookin</h1>
-
+    <div class="page-left">
+      <nav id="navigation" class="nav-section">
+        <img src="" alt="What's Cookin' Logo">
+        <ul class="nav-links">
+          <li>Favorite Recipes</li>
+          <li>Recipes to Cook</li>
+          <li id="userSearch" class="userInput">
+            <input type="text" name="search-field" placeholder="Search">
+            <aside class="search-filter">
+              <label for="search-filter">Search by:</label>
+              <select name="search-filter" id="search-filter">
+                <option value="" disabled selected></option>
+                <option value="name">Name</option>
+                <option value="tag">Tag</option>
+                <option value="ingredients">Ingredients</option>
+              </select>
+            </aside>
+          </li>
+        </ul>
+      </nav>
+    </div>
+    <div class="page-right">
+      <main id="landingPage" class="landing-page">
+        <h1>Welcome to What's Cookin'</h1>
+        <section id="recentlyViewedRecipes" class="center-piece">Insert Center Piece</section>
+        <section id="allRecipes" class="recipes-list">
+          <p class="recipe-card left">Insert Card Here (left)</p>
+          <p class="recipe-card right">Insert Card Here (right)</p>
+        </section>
+      </main>
+    </div>
     <script type="text/javascript" src="../data/users.js"></script>
     <script type="text/javascript" src="../data/recipes.js"></script>
     <script type="text/javascript" src="../data/ingredients.js"></script>
