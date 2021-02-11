@@ -11,7 +11,6 @@ class RecipeRepo {
     return recipes;
   }
 
-
   filterByTag(searchString) {
     const tags = searchString.split(',').map(tag => tag.trim());//separates by comma and trims whitespace
     
@@ -23,10 +22,8 @@ class RecipeRepo {
       })
       return matchingRecipes
     }, [])
-
     return this.removeDuplicates(recipes);
   }
-
 
   filterByName(searchString) {
     const names = searchString.split(',').map(tag => tag.trim());
@@ -39,12 +36,12 @@ class RecipeRepo {
       })
       return matchingRecipes;
     }, [])
-
     return this.removeDuplicates(recipes);
   }
 
   filterByIngredient(searchString) {
     const ingredients = searchString.split(',').map(tag => tag.trim());
+    
     const recipes = this.recipes.reduce((matchingRecipes, recipe) => {
       const recipeIngredients = recipe.getIngredientNames();
       ingredients.forEach(ingredientName => {
@@ -57,15 +54,9 @@ class RecipeRepo {
     return this.removeDuplicates(recipes);
   }
 
-
   removeDuplicates(data) {
     return data.filter((a, b) => data.indexOf(a) === b)
   }
 }
 
-
-
-
 module.exports = RecipeRepo;
-
-
