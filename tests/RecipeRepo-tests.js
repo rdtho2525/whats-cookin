@@ -34,6 +34,8 @@ describe('RecipeRepo', () => {
     expect(filteredData1.length).to.equal(9);
     const filteredData2 = recipeRepo.filterByTag('main course, dinner');
     expect(filteredData2.length).to.equal(12);
+    const filteredData3 = recipeRepo.filterByTag('soup');
+    expect(filteredData3).to.deep.equal([]);
   });
 
   it('should be able to remove duplicates from filtered data', () => {
@@ -49,6 +51,15 @@ describe('RecipeRepo', () => {
     const filteredData1 = recipeRepo.filterByName('Loaded Chocolate Chip Pudding Cookie Cups');
     expect(filteredData1[0].id).to.equal(595736);
     const filteredData2 = recipeRepo.filterByName('fish');
+    expect(filteredData2).to.deep.equal([]);
+  });
+
+  it('should be able to filter recipes by ingredient', () => {
+    const recipeRepo = new RecipeRepo();
+
+    const filteredData1 = recipeRepo.filterByIngredient('eggs');
+    expect(filteredData1.length).to.equal(13);
+    const filteredData2 = recipeRepo.filterByIngredient('fish');
     expect(filteredData2).to.deep.equal([]);
   });
 });

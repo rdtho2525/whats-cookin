@@ -43,6 +43,19 @@ class RecipeRepo {
     return this.removeDuplicates(recipes);
   }
 
+  filterByIngredient(searchString) {
+    const ingredients = searchString.split(',').map(tag => tag.trim());
+    const recipes = this.recipes.reduce((matchingRecipes, recipe) => {
+      const recipeIngredients = recipe.getIngredientNames();
+      ingredients.forEach(ingredientName => {
+        if (recipeIngredients.includes(ingredientName))
+        matchingRecipes.push(recipe)
+      })
+      return matchingRecipes;
+    }, [])
+    return this.removeDuplicates(recipes);
+  }
+
 
   removeDuplicates(data) {
     return data.filter((a, b) => data.indexOf(a) === b)
