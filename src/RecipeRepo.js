@@ -12,7 +12,7 @@ class RecipeRepo {
   }
 
   filterByTag(searchString) {
-    const tags = searchString.split(',').map(tag => tag.trim());//separates by comma and trims whitespace
+    const tags = searchString.split(',').map(tag => tag.trim());
     
     const recipes = this.recipes.reduce((matchingRecipes, recipe) => {
       tags.forEach(tag => {
