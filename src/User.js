@@ -7,6 +7,18 @@ class User {
     this.favoriteRecipes = [];
     this.recipesToCook = [];
   }
+
+  loveRecipe(recipe) {
+    this.favoriteRecipes.push(recipe);
+  }
+
+  removeRecipe(recipe) {
+    this.favoriteRecipes = this.favoriteRecipes.filter(favRecipe => favRecipe.id !== recipe.id)
+  }
+
+  saveRecipe(recipe) {
+    this.recipesToCook.push(recipe);
+  }
 }
 
 module.exports = User;

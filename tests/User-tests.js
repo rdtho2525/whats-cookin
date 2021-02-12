@@ -2,6 +2,8 @@ const User = require('../src/User');
 const chai = require('chai');
 const expect = chai.expect;
 const usersData = require('../data/users');
+const recipeData = require('../data/recipes');
+const Recipe = require('../src/Recipe');
 
 describe('User', () => {
 
@@ -37,6 +39,27 @@ describe('User', () => {
 
   it('should start with an empty list of recipes to cook', () => {
     expect(user.recipesToCook).to.deep.equal([]);
+  });
+
+  it('should be able to add a recipe to the favorite recipes list', () => {
+    const recipe = new Recipe(recipeData[0]);
+    user.loveRecipe(recipe);
+    expect(user.favoriteRecipes).to.deep.equal([recipe]);
+  });
+
+  it('should be able to remove a recipe from the favorite recipes list', () => {
+    const recipe = new Recipe(recipeData[0]);
+    const recipe1 = new Recipe(recipeData[1]);
+    user.loveRecipe(recipe);
+    user.loveRecipe(recipe1);
+    user.removeRecipe(recipe);
+    expect(user.favoriteRecipes).to.deep.equal([recipe1]);
+  });
+
+  it('should be able to add a recipe to the recipes to cook list', () => {
+    const recipe = new Recipe(recipeData[0]);
+    user.saveRecipe(recipe);
+    expect(user.recipesToCook).to.deep.equal([recipe]);
   });
 
 });
