@@ -11,6 +11,10 @@ class User {
   loveRecipe(recipe) {
     this.favoriteRecipes.push(recipe);
   }
+
+  removeRecipe(recipe) {
+    this.favoriteRecipes = this.favoriteRecipes.filter(favRecipe => favRecipe.id !== recipe.id)
+  }
 }
 
 module.exports = User;
