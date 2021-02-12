@@ -7,6 +7,10 @@ class User {
     this.favoriteRecipes = [];
     this.recipesToCook = [];
   }
+
+  loveRecipe(recipe) {
+    this.favoriteRecipes.push(recipe);
+  }
 }
 
 module.exports = User;
