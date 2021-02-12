@@ -15,6 +15,10 @@ class User {
   removeRecipe(recipe) {
     this.favoriteRecipes = this.favoriteRecipes.filter(favRecipe => favRecipe.id !== recipe.id)
   }
+
+  saveRecipe(recipe) {
+    this.recipesToCook.push(recipe);
+  }
 }
 
 module.exports = User;
