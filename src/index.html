@@ -9,14 +9,18 @@
     <div class="page-left">
       <nav id="navigation" class="nav-section">
         <img src="" alt="What's Cookin' Logo">
-        <ul class="nav-links list-item">
-          <li>Favorite Recipes</li>
-          <li>Recipes to Cook</li>
+        <ul class="nav-links list">
+          <li>
+            <button class="click">Favorite Recipes</button>
+          </li>
+          <li>
+            <button class="click">Recipes to Cook</button>
+          </li>
           <li id="userSearch" class="userInput">
             <input type="text" name="search-field" placeholder="Search">
             <aside class="search-filter">
               <label for="search-filter">Search by:</label>
-              <select name="search-filter" id="search-filter">
+              <select class="click" name="search-filter" id="search-filter">
                 <option value="" disabled selected></option>
                 <option value="name">Name</option>
                 <option value="tag">Tag</option>
@@ -29,13 +33,15 @@
     </div>
     <div class="page-right">
       <main id="landingPage" class="landing-page">
-        <h1>Welcome to What's Cookin'</h1>
+        <header>
+          <h1>Welcome to What's Cookin'!</h1>
+        </header>
         <section id="recentlyViewedRecipes" class="center-piece">
           <img src="https://spoonacular.com/recipeImages/779583-556x370.jpg" alt="thai chicken tenders">
-          <div id="centerPieceCard" class="center-piece-card">
+          <div id="centerPieceCard" class="center-piece-banner">
             <caption id="" class="recipe-name">Thai Chicken Tenders with Broiled Pineapple Slaw</caption>
             <caption id="" class="recipe-tags">
-              <ul class="list-item">
+              <ul class="list tag">
                 <li>Lunch</li>
                 <li>Main Course</li>
                 <li>Main Dish</li>
@@ -44,22 +50,22 @@
             </div>
         </section>
         <section id="allRecipes" class="recipes-list">
-          <div class="recipe-card left">
+          <div class="recipe-card left click">
             <img src="https://spoonacular.com/recipeImages/595736-556x370.jpg" alt="chocolate chip cookies">
             <caption id="" class="recipe-name">Loaded Chocolate Chip Pudding Cookie Cups</caption>
             <caption id="" class="recipe-tags">
-              <ul class="list-item">
+              <ul class="list tag">
                 <li>Antipasti</li>
                 <li>Starter</li>
                 <li>Snack</li>
               </ul>
             </caption>
           </div>
-          <div class="recipe-card right">
+          <div class="recipe-card right click">
             <img src="https://spoonacular.com/recipeImages/678353-556x370.jpg" alt="grilled prok chops">
             <caption id="" class="recipe-name">Maple Dijon Apple Cider Grilled Pork Chops</caption>
             <caption id="" class="recipe-tags">
-              <ul class="list-item">
+              <ul class="list tag">
                 <li>Lunch</li>
                 <li>Main Course</li>
                 <li>Dinner</li>
