@@ -62,11 +62,6 @@ const displayRecipes = (array) => {
 //VIEW FULL RECIPE CARD - DIRECTIONS, INGREDIENTS, TOTAL COST
 
 //FILTER RECIPES BY TAG, NAME, INGREDIENTS
-    //input: searchField.value, searchFilter.value
-    //output: array of recipe objects that match the input provided
-    //if searchFilter.value === 'tag', filterByTag
-    //if searchFilter.value === 'name', filterByName
-    //if searchFilter.value === ingredient, filterByIngredient
 const filterRecipes = () => {
     const filterValue = searchFilter.value;
     const userInput = searchField.value.toLowerCase();
@@ -80,7 +75,7 @@ const filterRecipes = () => {
             console.log('this tag')
             recipeCards = recipeRepo.filterByTag(userInput);
             break;
-        case 'ingredient':
+        case 'ingredients':
             console.log('this ingredient')
             recipeCards = recipeRepo.filterByIngredient(userInput);
             break;
