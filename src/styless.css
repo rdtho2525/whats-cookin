@@ -119,7 +119,7 @@ h1 {
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: space-around;
+    justify-content: space-evenly;
     background-color: hsla(0, 0, 0, .5);
 }
 
@@ -133,9 +133,14 @@ h1 {
     position: relative;
 }
 
-.center-piece-image {
+.carousel-card {
     height: 100%;
     width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    background-size: cover;
+   /*strictly for test - dynamic in future */ background-image: url(https://spoonacular.com/recipeImages/779583-556x370.jpg);
 }
 
 .center-piece-banner {
@@ -143,7 +148,10 @@ h1 {
     width: 100%;
     background-color: rgba(235, 233, 233, 0.75);
 }
-
+/* PICK UP HERE. suggestion: remove image as a tag for carousel and add image as background 
+1. research if background image can be dynamic by using css (style.backgroundImage = 'url("")
+2. last option: hardcard multiple background image classes
+*/
 .recipe-name {
     font-size: 2em;
     padding: .25em;
