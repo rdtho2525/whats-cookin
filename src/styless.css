@@ -33,21 +33,19 @@ body {
 }
 
 header {
-    display: flex;
-    justify-content: center;
+text-align: center;
 }
 
 h1 {
-    height: 100%;
     font-size: 4em;
 }
 
 
 /* NAVIGATION */
 .page-left {
-    height: 100%;
+    height: 100vh;
     width: 25%;
-    position: relative;
+    /* position: relative; */
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -91,6 +89,7 @@ button {
     font-size: 1em;
 }
 
+
 .user-input > input {
     height: 2em;
     width: 100%;
@@ -100,7 +99,7 @@ button {
 }
 
 .search-filter > select {
-    width: 19px;
+    width: 90px;
 }
 
 
@@ -140,8 +139,6 @@ button {
 .center-piece-banner {
     height: 30%;
     width: 100%;
-    /* position: absolute;
-    bottom: 0%; */
     background-color: rgba(235, 233, 233, 0.75);
 }
 
