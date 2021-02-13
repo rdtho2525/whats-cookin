@@ -6,21 +6,22 @@
     <link rel="stylesheet" href="./styless.css">
   </head>
   <body>
+
     <div class="page-left">
       <nav id="navigation" class="nav-section">
         <img src="" alt="What's Cookin' Logo">
         <ul class="nav-links list">
           <li>
-            <button class="click">Favorite Recipes</button>
+            <button id="favoriteRecipes" class="click">Favorite Recipes</button>
           </li>
           <li>
-            <button class="click">Recipes to Cook</button>
+            <button id="recipesToCook" class="click">Recipes to Cook</button>
           </li>
           <li id="userSearch" class="user-input">
-            <input type="text" name="search-field" placeholder="Search">
+            <input id="searchField" type="text" name="search-field" placeholder="Search for recipes..">
             <aside class="search-filter">
               <label for="search-filter">Search by:</label>
-              <select class="click" name="search-filter" id="search-filter">
+              <select id="searchFilter" class="click" name="search-filter" id="search-filter">
                 <option value="" disabled selected></option>
                 <option value="name">Name</option>
                 <option value="tag">Tag</option>
@@ -31,24 +32,30 @@
         </ul>
       </nav>
     </div>
+    
     <div class="page-right">
+      <header>
+        <h1 id="userGreeting">Welcome to What's Cookin'!</h1>
+      </header>
       <main id="landingPage" class="landing-page">
-        <header>
-          <h1>Welcome to What's Cookin'!</h1>
-        </header>
         <section id="recentlyViewedRecipes" class="center-piece">
           <header>
-          <h2 class="recipe-list-title">Recently Viewed Recipes</h2>
+          <h2 class="recipe-list-title">Recipes of the Week</h2>
          </header>
-          <article>
-            <img class="center-piece-image" src="https://spoonacular.com/recipeImages/779583-556x370.jpg" alt="thai chicken tenders">
+          <article class="carousel-card">
             <aside id="centerPieceCard" class="center-piece-banner">
               <p id="" class="recipe-name">Thai Chicken Tenders with Broiled Pineapple Slaw</p>
               <p id="" class="recipe-tags">
                 <ul class="list tag">
-                  <li>Lunch</li>
-                  <li>Main Course</li>
-                  <li>Main Dish</li>
+                  <li class="first-tag">#Tags:</li>
+                  <li>test</li>
+                  <li>test</li>
+                  <li>test</li>
+                  <li>test</li>
+                  <li>test</li>
+                  <li>test</li>
+                  <li>test</li>
+                  <li>test</li>
                 </ul>
               </p>
             </aside>
@@ -58,8 +65,8 @@
           <header>
             <h2 class="recipe-list-title">Currently Viewing: All Recipes</h2>
           </header>
-          <div class="card-container">
-            <article class="recipe-card left click">
+          <div id="cardContainer" class="card-container">
+            <article class="recipe-card left click"> <!-- remove article after testing -->
               <img src="https://spoonacular.com/recipeImages/595736-556x370.jpg" alt="chocolate chip cookies">
               <p id="" class="recipe-name">Loaded Chocolate Chip Pudding Cookie Cups</p>
               <p id="" class="recipe-tags">
@@ -70,7 +77,7 @@
                 </ul>
               </p>
             </article>
-            <article class="recipe-card right click">
+            <article class="recipe-card right click"> <!-- remove article after testing -->
               <img src="https://spoonacular.com/recipeImages/678353-556x370.jpg" alt="grilled prok chops">
               <p id="" class="recipe-name">Maple Dijon Apple Cider Grilled Pork Chops</p>
               <p id="" class="recipe-tags">
@@ -85,9 +92,13 @@
         </section>
       </main>
     </div>
+
     <script type="text/javascript" src="../data/users.js"></script>
     <script type="text/javascript" src="../data/recipes.js"></script>
     <script type="text/javascript" src="../data/ingredients.js"></script>
-    <script type="text/javascript" src="./scripts.js"></script>
+    <script type="text/javascript" src=".//Recipe.js"></script>
+    <script type="text/javascript" src="./RecipeRepo.js"></script>
+    <script type="text/javascript" src="./User.js"></script>
+    <script type="text/javascript" src="../scripts.js"></script>
   </body>
 </html>

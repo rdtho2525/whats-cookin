@@ -22,35 +22,22 @@ Misc */
 }
 
 html {
-    height: 100%;
-    width: 100%;
     font-family: 'Just Another Hand', cursive;
 }
 
 body {
-    height: 100%;
-    width: 100%;
+    height: 100vh;
+    width: 100vw;
     display: flex;
     flex-direction: row;
-    /* border: 1px solid yellow; */
-}
-
-header {
-    display: flex;
-    align-items: center;
-}
-
-h1 {
-    height: 100%;
-    font-size: 4em;
 }
 
 
 /* NAVIGATION */
 .page-left {
-    height: 100%;
+    height: 100vh;
     width: 25%;
-    position: relative;
+    /* position: relative; */
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -94,6 +81,7 @@ button {
     font-size: 1em;
 }
 
+
 .user-input > input {
     height: 2em;
     width: 100%;
@@ -103,16 +91,27 @@ button {
 }
 
 .search-filter > select {
-    width: 19px;
+    width: 90px;/* fix search by box as this update made it stack*/
 }
 
 
 /* LANDING PAGE */
+
+header {
+    text-align: center;
+    }
+    
+h1 {
+    font-size: 4em;
+    margin-top: 5px;
+    }
+    
 .page-right {
-    /* height: 100%; */
     width: 75%;
     background-color: #d7d2cc;
-    overflow: scroll;
+    overflow: auto;
+    display: flex;
+    flex-direction: column;
 }
 
 .landing-page {
@@ -121,33 +120,42 @@ button {
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: space-around;
+    justify-content: space-evenly;
     background-color: hsla(0, 0, 0, .5);
 }
 
 .center-piece {
     height: 50%;
     width: 650px;
-    max-height: 55%;
+    /* max-height: 55%; */
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
     position: relative;
 }
 
-.center-piece-image {
+.carousel-card {
     height: 100%;
     width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    background-size: cover;
+   /*strictly for test - dynamic in future */ background-image: url(https://spoonacular.com/recipeImages/779583-556x370.jpg);
 }
 
 .center-piece-banner {
     height: 30%;
     width: 100%;
-    /* position: absolute;
-    bottom: 0%; */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
     background-color: rgba(235, 233, 233, 0.75);
 }
-
+/* PICK UP HERE. suggestion: remove image as a tag for carousel and add image as background 
+1. research if background image can be dynamic by using css (style.backgroundImage = 'url("")
+2. last option: hardcard multiple background image classes
+*/
 .recipe-name {
     font-size: 2em;
     padding: .25em;
@@ -157,6 +165,7 @@ button {
     width: 100%;
     display: flex;
     justify-content: space-between;
+    flex-wrap: wrap;
 }
 
 .recipes-list {
@@ -185,18 +194,15 @@ button {
 
 .tag {
     height: 50%;
-    width: 40%;
     display: flex;
     flex-direction: row;
+    flex-wrap: wrap;
     align-self: end;
-    width: 20%;
-    border: 4px solid blue;
 }
 
  .list {
     height: 2em;
-    width: 100%;
-    justify-content: space-around;
+    justify-content:start;
     list-style: none;
 } 
 
