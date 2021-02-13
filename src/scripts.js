@@ -4,7 +4,6 @@
 // const RecipeRepo = require('../src/RecipeRepo');
 
 // const recipe = new Recipe();
-// const user = new User();
 const recipeRepo = new RecipeRepo();
 
 //DOM ELEMENTS//
@@ -23,6 +22,18 @@ const cardContainer = document.querySelector('#cardContainer');
 //FUNCTIONS//
 
 //SELECT RANDOM USER - ON LOAD//
+const getRandomIndex = array => {
+    return Math.floor(Math.random() * array.length)
+}
+
+//unsure where to make this declaration
+const currentUser = new User(usersData[getRandomIndex(usersData)]);
+
+
+const greetUser = () => {
+    const firstName = currentUser.name.split(' ', 2);
+    userGreeting.textContent = `Welcome to What's Cookin', ${firstName[0]}!`;
+}
 
 //VIEW LIST OF ALL RECIPES
 const viewAllRecipes = () => {
@@ -50,3 +61,4 @@ const viewAllRecipes = () => {
 
 //EVENT LISTENERS **AT BOTTOM**//
 window.addEventListener('load', viewAllRecipes);
+window.addEventListener('load', greetUser);
