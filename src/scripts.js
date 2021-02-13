@@ -11,6 +11,7 @@ const navSection = document.querySelector('#navigation');
 const favRecipesButton = document.querySelector('#favoriteRecipes');
 const recipesToCookButton = document.querySelector('#recipesToCook');
 const userSearch = document.querySelector('#userSearch');
+const searchField = document.querySelector('#searchField')
 const searchFilter = document.querySelector('#searchFilter');
 const landingPage = document.querySelector('#landingPage');
 const userGreeting = document.querySelector('#userGreeting');
@@ -36,8 +37,9 @@ const greetUser = () => {
 }
 
 //VIEW LIST OF ALL RECIPES
-const viewAllRecipes = () => {
-    const allRecipes = recipeRepo.recipes.map(recipe => {
+const displayRecipes = (array) => {
+    const pickArray = array.recipes || array;
+    const allRecipes = pickArray.map(recipe => {
         return `
         <article class="recipe-card left click">
             <img src="${recipe.image}" alt="${recipe.name}">
@@ -54,11 +56,47 @@ const viewAllRecipes = () => {
 
     return cardContainer.innerHTML = allRecipes.join('\n');
 }
+
+//CAROUSEL - "MOST POPULAR RECIPES OF THE WEEK"
+
 //VIEW FULL RECIPE CARD - DIRECTIONS, INGREDIENTS, TOTAL COST
 
 //FILTER RECIPES BY TAG, NAME, INGREDIENTS
+    //input: searchField.value, searchFilter.value
+    //output: array of recipe objects that match the input provided
+    //if searchFilter.value === 'tag', filterByTag
+    //if searchFilter.value === 'name', filterByName
+    //if searchFilter.value === ingredient, filterByIngredient
+const filterRecipes = () => {
+    const filterValue = searchFilter.value;
+    const userInput = searchField.value.toLowerCase();
+    let recipeCards = [];
+    switch (filterValue) {
+        case 'name':
+            console.log('this name')
+            recipeCards = recipeRepo.filterByName(userInput);
+            break;
+        case 'tag':
+            console.log('this tag')
+            recipeCards = recipeRepo.filterByTag(userInput);
+            break;
+        case 'ingredient':
+            console.log('this ingredient')
+            recipeCards = recipeRepo.filterByIngredient(userInput);
+            break;
+        default:
+            console.log('keep trying');
+            recipeCards = recipeRepo.recipes;
+            break;
+    }
+
+    return displayRecipes(recipeCards);
+}
+
+//combine display and filter for event lister, on change to input
 
 
 //EVENT LISTENERS **AT BOTTOM**//
-window.addEventListener('load', viewAllRecipes);
+window.addEventListener('load', filterRecipes);
 window.addEventListener('load', greetUser);
+searchFilter.addEventListener('change', filterRecipes);
