@@ -3,10 +3,88 @@
   <head>
     <meta charset="UTF-8">
     <title>Whats Cookin</title>
+    <link rel="stylesheet" href="./styless.css">
   </head>
   <body>
-    <h1>Whats Cookin</h1>
-
+    <div class="page-left">
+      <nav id="navigation" class="nav-section">
+        <img src="" alt="What's Cookin' Logo">
+        <ul class="nav-links list">
+          <li>
+            <button class="click">Favorite Recipes</button>
+          </li>
+          <li>
+            <button class="click">Recipes to Cook</button>
+          </li>
+          <li id="userSearch" class="user-input">
+            <input type="text" name="search-field" placeholder="Search">
+            <aside class="search-filter">
+              <label for="search-filter">Search by:</label>
+              <select class="click" name="search-filter" id="search-filter">
+                <option value="" disabled selected></option>
+                <option value="name">Name</option>
+                <option value="tag">Tag</option>
+                <option value="ingredients">Ingredients</option>
+              </select>
+            </aside>
+          </li>
+        </ul>
+      </nav>
+    </div>
+    <div class="page-right">
+      <main id="landingPage" class="landing-page">
+        <header>
+          <h1>Welcome to What's Cookin'!</h1>
+        </header>
+        <section id="recentlyViewedRecipes" class="center-piece">
+          <header>
+          <h2 class="recipe-list-title">Recently Viewed Recipes</h2>
+         </header>
+          <article>
+            <img class="center-piece-image" src="https://spoonacular.com/recipeImages/779583-556x370.jpg" alt="thai chicken tenders">
+            <aside id="centerPieceCard" class="center-piece-banner">
+              <p id="" class="recipe-name">Thai Chicken Tenders with Broiled Pineapple Slaw</p>
+              <p id="" class="recipe-tags">
+                <ul class="list tag">
+                  <li>Lunch</li>
+                  <li>Main Course</li>
+                  <li>Main Dish</li>
+                </ul>
+              </p>
+            </aside>
+          </article>
+        </section>
+        <section id="allRecipesSection" class="recipes-list">
+          <header>
+            <h2 class="recipe-list-title">Currently Viewing: All Recipes</h2>
+          </header>
+          <div class="card-container">
+            <article class="recipe-card left click">
+              <img src="https://spoonacular.com/recipeImages/595736-556x370.jpg" alt="chocolate chip cookies">
+              <p id="" class="recipe-name">Loaded Chocolate Chip Pudding Cookie Cups</p>
+              <p id="" class="recipe-tags">
+                <ul class="list tag">
+                  <li>Antipasti</li>
+                  <li>Starter</li>
+                  <li>Snack</li>
+                </ul>
+              </p>
+            </article>
+            <article class="recipe-card right click">
+              <img src="https://spoonacular.com/recipeImages/678353-556x370.jpg" alt="grilled prok chops">
+              <p id="" class="recipe-name">Maple Dijon Apple Cider Grilled Pork Chops</p>
+              <p id="" class="recipe-tags">
+                <ul class="list tag">
+                  <li>Lunch</li>
+                  <li>Main Course</li>
+                  <li>Dinner</li>
+                </ul>
+              </p>
+            </article>
+          </div>
+        </section>
+      </main>
+    </div>
     <script type="text/javascript" src="../data/users.js"></script>
     <script type="text/javascript" src="../data/recipes.js"></script>
     <script type="text/javascript" src="../data/ingredients.js"></script>

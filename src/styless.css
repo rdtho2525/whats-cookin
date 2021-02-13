@@ -1,0 +1,232 @@
+/* 
+**RULE KEY**:
+=======
+Size
+Display
+Flex rules
+Color
+Margin
+Border
+Padding
+Font
+Text
+Misc */
+
+@import url('https://fonts.googleapis.com/css2?family=Just+Another+Hand&display=swap');
+
+* {
+    /* border: 1px solid red; */
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    height: 100%;
+    width: 100%;
+    font-family: 'Just Another Hand', cursive;
+}
+
+body {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    /* border: 1px solid yellow; */
+}
+
+header {
+    display: flex;
+    align-items: center;
+}
+
+h1 {
+    height: 100%;
+    font-size: 4em;
+}
+
+
+/* NAVIGATION */
+.page-left {
+    height: 100%;
+    width: 25%;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: #b9c5c7;
+    overflow: hidden;
+    z-index: 10;
+}
+
+.nav-section {
+    height: 86%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+.nav-section > img {
+    height: 200px;
+    width: 200px;
+    border-radius: 100%;
+    text-align: center;
+}
+
+.nav-links.list {
+    height: 175px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    margin-top: 1em;
+    font-size: 2em;
+    text-align: center;
+}
+
+button {
+    background-color: rgba(255, 255, 255, 0);
+    border: none;
+    font-family: 'Just Another Hand', cursive;
+    font-size: 1em;
+}
+
+.user-input > input {
+    height: 2em;
+    width: 100%;
+    margin-bottom: .75em;
+    border-radius: 5px;
+    text-align: center;
+}
+
+.search-filter > select {
+    width: 19px;
+}
+
+
+/* LANDING PAGE */
+.page-right {
+    /* height: 100%; */
+    width: 75%;
+    background-color: #d7d2cc;
+    overflow: scroll;
+}
+
+.landing-page {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    background-color: hsla(0, 0, 0, .5);
+}
+
+.center-piece {
+    height: 50%;
+    width: 650px;
+    max-height: 55%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    position: relative;
+}
+
+.center-piece-image {
+    height: 100%;
+    width: 100%;
+}
+
+.center-piece-banner {
+    height: 30%;
+    width: 100%;
+    /* position: absolute;
+    bottom: 0%; */
+    background-color: rgba(235, 233, 233, 0.75);
+}
+
+.recipe-name {
+    font-size: 2em;
+    padding: .25em;
+}
+
+.card-container {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.recipes-list {
+    width: 650px;
+    max-height: 15%;
+}
+
+.recipe-list-title {
+    font-size: 2em;
+    padding-bottom: 5px;
+}
+
+.recipe-card {
+    height: 316px;
+    width: 275px;
+    max-width: 45%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.recipe-card > img {
+    height: 75%;
+    width: 100%;
+}
+
+.tag {
+    height: 50%;
+    width: 40%;
+    display: flex;
+    flex-direction: row;
+    align-self: end;
+    width: 20%;
+    border: 4px solid blue;
+}
+
+ .list {
+    height: 2em;
+    width: 100%;
+    justify-content: space-around;
+    list-style: none;
+} 
+
+.list > li {
+    width: 5em;
+}
+
+/* FULL RECIPE CARD (MODAL) */
+.dimmed {
+    position: relative;
+  }
+  
+  .dimmed:after {
+    content: " ";
+    z-index: 10;
+    display: block;
+    position: absolute;
+    height: 100%;
+    top: 0;
+    left: 0;
+    right: 0;
+    background: rgba(0, 0, 0, 0.5);
+  }
+
+/* MISCELLANEOUS */
+
+.click {
+    cursor: pointer;
+}
+
+.hidden {
+    display: none;
+}
