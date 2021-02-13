@@ -192,14 +192,15 @@ h1 {
     height: 50%;
     display: flex;
     flex-direction: row;
+    /* justify-content: space-between; */
+    flex-wrap: wrap;
     align-self: end;
     border: 4px solid blue;
 }
 
  .list {
     height: 2em;
-    width: 100%;
-    justify-content: space-around;
+    justify-content:start;
     list-style: none;
 } 
 
