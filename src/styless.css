@@ -32,14 +32,6 @@ body {
     flex-direction: row;
 }
 
-header {
-text-align: center;
-}
-
-h1 {
-    font-size: 4em;
-}
-
 
 /* NAVIGATION */
 .page-left {
@@ -99,16 +91,26 @@ button {
 }
 
 .search-filter > select {
-    width: 90px;
+    width: 90px;/* fix search by box as this update made it stack*/
 }
 
 
 /* LANDING PAGE */
+
+header {
+    text-align: center;
+    }
+    
+h1 {
+    font-size: 4em;
+    }
+    
 .page-right {
-    /* height: 100%; */
     width: 75%;
     background-color: #d7d2cc;
-    overflow: scroll;
+    overflow: auto;
+    display: flex;
+    flex-direction: column;
 }
 
 .landing-page {
@@ -124,7 +126,7 @@ button {
 .center-piece {
     height: 50%;
     width: 650px;
-    max-height: 55%;
+    /* max-height: 55%; */
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
@@ -180,11 +182,9 @@ button {
 
 .tag {
     height: 50%;
-    width: 40%;
     display: flex;
     flex-direction: row;
     align-self: end;
-    width: 20%;
     border: 4px solid blue;
 }
 
