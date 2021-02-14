@@ -3,8 +3,6 @@
 // const User = require('../src/User');
 // const RecipeRepo = require('../src/RecipeRepo');
 
-const { every } = require("../data/users");
-
 // { <p id="" class="recipe-tags">
 //     <ul class="list tag">
 //         <li>${recipe.tags[0] || null}</li>
@@ -87,16 +85,23 @@ function getTesting() {
 
 getTesting();
 
-const showFullCard = event => {
+const changeToFullCard = event => {
     let recipe;
     const id = event.target.closest('article').id
     if (id !== undefined) {
         recipe = RecipeRepo.recipes.find(recipe => recipe.id === id)
     }
-    //pass recipe into DOM display function here
+    showFullCard(recipe);
 }
 
-
+const showFullCard = recipe => {
+    fullCardImage.src = recipe.image;//update image
+    fullCardName.innerText = recipe.name//update title
+    //update directions
+    totalCost.innerText = `total cost: ${recipe.getTotalCostOfIngredients()}`//update cost
+    //update ingredients
+    removeClass(modalContainer); //unhide full card
+}
 
 
 
