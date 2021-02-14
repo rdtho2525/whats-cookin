@@ -3,16 +3,15 @@
 // const User = require('../src/User');
 // const RecipeRepo = require('../src/RecipeRepo');
 
-{/* <p id="" class="recipe-tags">
-    <ul class="list tag">
-        <li>${recipe.tags[0] || null}</li>
-        <li>${recipe.tags[1] || null}</li>
-        <li>${recipe.tags[2] || null}</li>
-    </ul>
-</p> */}
+// { <p id="" class="recipe-tags">
+//     <ul class="list tag">
+//         <li>${recipe.tags[0] || null}</li>
+//         <li>${recipe.tags[1] || null}</li>
+//         <li>${recipe.tags[2] || null}</li>
+//     </ul>
+// </p> }
 
 const recipeRepo = new RecipeRepo();
-// const recipe = new Recipe(recipeRepo.recipes[].instructions);
 const findRecipe = recipeRepo.recipes.filter(recipe => recipe.id === 325208);
 
 
@@ -53,6 +52,9 @@ const currentUser = new User(usersData[getRandomIndex(usersData)]);
 const greetUser = () => {
     const firstName = currentUser.name.split(' ', 2);
     userGreeting.textContent = `Welcome to What's Cookin', ${firstName[0]}!`;
+    setTimeout(function() {
+        addClass(userGreeting);
+    }, 10000)
 }
 
 //VIEW LIST OF ALL RECIPES
@@ -110,6 +112,13 @@ const filterRecipes = () => {
     return displayRecipes(recipeCards);
 }
 
+const addClass = (element, className) => {
+    element.classList.add(className || "hidden");
+  };
+  
+const removeClass = (element, className) => {
+    element.classList.remove(className || "hidden");
+  };
 //combine display and filter for event lister, on change to input
 
 
