@@ -3,8 +3,19 @@
 // const User = require('../src/User');
 // const RecipeRepo = require('../src/RecipeRepo');
 
-// const recipe = new Recipe();
+{/* <p id="" class="recipe-tags">
+    <ul class="list tag">
+        <li>${recipe.tags[0] || null}</li>
+        <li>${recipe.tags[1] || null}</li>
+        <li>${recipe.tags[2] || null}</li>
+    </ul>
+</p> */}
+
 const recipeRepo = new RecipeRepo();
+// const recipe = new Recipe(recipeRepo.recipes[].instructions);
+const findRecipe = recipeRepo.recipes.filter(recipe => recipe.id === 325208);
+
+
 
 //DOM ELEMENTS//
 const navSection = document.querySelector('#navigation');
@@ -18,7 +29,15 @@ const userGreeting = document.querySelector('#userGreeting');
 const recentlyViewRecipes = document.querySelector('#recentlyViewedRecipes');
 const centerPieceCard = document.querySelector('#centerPieceCard');
 const cardContainer = document.querySelector('#cardContainer');
-
+const modalContainer = document.querySelector('#modalContainer');
+const fullRecipeCard = document.querySelector('#fullRecipeCard');
+const fullCardImage = document.querySelector('#fullCardImage');
+const fullCardName = document.querySelector('#fullCardName');
+const totalCost = document.querySelector('#totalCost');
+const ingredientsTitle = document.querySelector('#ingredientsTitle');
+const ingredientsNeeded = document.querySelector('#ingredientsNeeded');
+const instructionsTitle = document.querySelector('#instructionsTitle');
+const recipeInstructions = document.querySelector('#recipeInstructions');
 
 //FUNCTIONS//
 
@@ -44,13 +63,6 @@ const displayRecipes = (array) => {
         <article class="recipe-card left click">
             <img src="${recipe.image}" alt="${recipe.name}">
             <p id="" class="recipe-name">${recipe.name}</p>
-            <p id="" class="recipe-tags">
-            <ul class="list tag">
-                <li>${recipe.tags[0]}</li>
-                <li>${recipe.tags[1]}</li>
-                <li>${recipe.tags[2]}</li>
-            </ul>
-            </p>
         </article>`
     });
 
@@ -60,6 +72,16 @@ const displayRecipes = (array) => {
 //CAROUSEL - "MOST POPULAR RECIPES OF THE WEEK"
 
 //VIEW FULL RECIPE CARD - DIRECTIONS, INGREDIENTS, TOTAL COST
+
+function getTesting() {
+    // console.log(findRecipe[0])
+    const result = findRecipe[0].instructions.map(ele => {
+        return `<li class="item">${ele.instruction}</li>`
+    })
+    return recipeInstructions.innerHTML = result.join('\n');
+}
+
+getTesting();
 
 //FILTER RECIPES BY TAG, NAME, INGREDIENTS
 const filterRecipes = () => {

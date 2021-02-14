@@ -15,7 +15,7 @@ Misc */
 @import url("https://fonts.googleapis.com/css2?family=Just+Another+Hand&display=swap");
 
 * {
-  /* border: 1px solid red; */
+  border: 1px solid red;
   box-sizing: border-box;
   margin: 0;
   padding: 0;
@@ -116,19 +116,54 @@ h1 {
   width: 100%;
   display: flex;
   align-items: center;
-  /* justify-content: center; */
   position: fixed;
   background-color: rgba(0, 0, 0, 0.4);
   z-index: 1;
 }
 
 .full-recipe-card {
-  height: 60%;
-  width: 40%;
-  /* left: 25vw; */
-  /* margin: 0 auto; */
-  border: 1px solid green;
+  height: 856px;
+  width: 656px;
+  margin-left: 18vw;
+  border: 1px solid black;
+  box-shadow: hsla(0, 0, 0, 0.5);
   background-color: white;
+  overflow: scroll;
+}
+
+#fullCardImage {
+  height: 437px;
+  width: 100%;
+}
+
+.inside {
+  list-style-position: inside;
+}
+
+.space-between {
+  display: flex;
+  justify-content: space-between;
+}
+
+.full-card-text {
+  font-size: 1.5em;
+  padding-left: 0.25em;
+}
+
+.ingredient-items {
+  max-height: 130px;
+  display: flex;
+  flex-direction: column;
+  justify-content: stretch;
+  flex-wrap: wrap;
+}
+
+.ingredient-items > li {
+  width: 100px;
+}
+
+.item {
+  padding: 0.25em;
 }
 
 .landing-page {
