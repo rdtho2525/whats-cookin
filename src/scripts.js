@@ -3,6 +3,8 @@
 // const User = require('../src/User');
 // const RecipeRepo = require('../src/RecipeRepo');
 
+const { every } = require("../data/users");
+
 // { <p id="" class="recipe-tags">
 //     <ul class="list tag">
 //         <li>${recipe.tags[0] || null}</li>
@@ -62,7 +64,7 @@ const displayRecipes = (array) => {
     const pickArray = array.recipes || array;
     const allRecipes = pickArray.map(recipe => {
         return `
-        <article class="recipe-card left click">
+        <article id="${recipe.id}" class="recipe-card left click">
             <img src="${recipe.image}" alt="${recipe.name}">
             <p id="" class="recipe-name">${recipe.name}</p>
         </article>`
@@ -84,6 +86,19 @@ function getTesting() {
 }
 
 getTesting();
+
+const showFullCard = event => {
+    let recipe;
+    const id = event.target.closest('article').id
+    if (id !== undefined) {
+        recipe = RecipeRepo.recipes.find(recipe => recipe.id === id)
+    }
+    //pass recipe into DOM display function here
+}
+
+
+
+
 
 //FILTER RECIPES BY TAG, NAME, INGREDIENTS
 const filterRecipes = () => {
