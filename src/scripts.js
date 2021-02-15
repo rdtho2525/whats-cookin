@@ -92,23 +92,32 @@ const changeToFullCard = event => {
 }
 
 const showFullCard = recipe => {
-    fullCardImage.src = recipe.image;//update image
-    fullCardName.innerText = recipe.name//update title
-    recipeInstructions.innerHTML = getInstructions(recipe)//update instructions
-    totalCost.innerText = `total cost: ${recipe.getTotalCostOfIngredients()}`//update cost
-    //update ingredients
-    removeClass(modalContainer); //unhide full card
+    fullCardImage.src = recipe.image;
+    fullCardName.innerText = recipe.name;
+    recipeInstructions.innerHTML = getInstructions(recipe);
+    totalCost.innerText = `total cost: $${recipe.getTotalCostOfIngredients()}`;
+    ingredientsNeeded.innerHTML = getIngredients(recipe);
+    removeClass(modalContainer);
 }
 
 const getInstructions = recipe => {
     const result = recipe.instructions.map(ele => {
-        return `<li class="item">${ele.instruction}</li>`
+        return `<li class="item">${ele.instruction}</li>`;
     })
     return result.join('\n');
 }
 
-const testRecipe = new Recipe(recipeData[0])//for testing only
-showFullCard(testRecipe)
+const getIngredients = recipe => {
+    const ingredients = recipe.getIngredientNames();
+    const result = ingredients.map((ingr, i) => {
+        return `<li>${ingr}: ${recipe.ingredients[i].quantity.amount} ${recipe.ingredients[i].quantity.unit}</li>`;
+    })
+    return result.join('\n');
+}
+
+
+const testRecipe = new Recipe(recipeData[9])//for testing only
+showFullCard(testRecipe)//for testing only
 
 
 
