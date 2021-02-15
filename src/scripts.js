@@ -85,9 +85,11 @@ const removeClass = (element, className) => {
 
 const changeToFullCard = event => {
     let recipe;
-    const id = event.target.closest('article').id
-    if (id !== undefined) {
-        recipe = RecipeRepo.recipes.find(recipe => recipe.id === id)
+    const recipeID = parseInt(event.target.closest('article').id)
+    console.log(recipeID)
+    if (recipeID !== undefined) {
+        recipe = recipeRepo.recipes.find(rec => rec.id === recipeID)
+        console.log(recipe)
     }
     showFullCard(recipe);
 }
@@ -117,9 +119,6 @@ const getIngredients = recipe => {
     return result.join('\n');
 }
 
-
-const testRecipe = new Recipe(recipeData[9])//for testing only
-showFullCard(testRecipe)//for testing only
 
 
 
@@ -161,4 +160,8 @@ searchFilter.addEventListener('change', filterRecipes);
 
 exitFullCardButton.addEventListener('click', function() {
     addClass(modalContainer);
+})
+
+cardContainer.addEventListener('click', function(event) {
+    changeToFullCard(event);
 })
