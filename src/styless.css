@@ -143,6 +143,10 @@ h1 {
   transform: translate(1700%, 10%);
 }
 
+.exit-full-card:hover{
+  background-color: grey;
+}
+
 #fullCardImage {
   height: 437px;
   width: 100%;
