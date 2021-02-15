@@ -37,6 +37,7 @@ const ingredientsTitle = document.querySelector('#ingredientsTitle');
 const ingredientsNeeded = document.querySelector('#ingredientsNeeded');
 const instructionsTitle = document.querySelector('#instructionsTitle');
 const recipeInstructions = document.querySelector('#recipeInstructions');
+const exitFullCardButton = document.querySelector('#exitFullCard');
 
 //FUNCTIONS//
 
@@ -156,3 +157,7 @@ const filterRecipes = () => {
 window.addEventListener('load', filterRecipes);
 window.addEventListener('load', greetUser);
 searchFilter.addEventListener('change', filterRecipes);
+
+exitFullCardButton.addEventListener('click', function() {
+    addClass(modalContainer);
+})
