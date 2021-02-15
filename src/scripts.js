@@ -85,18 +85,18 @@ const removeClass = (element, className) => {
 
 const changeToFullCard = event => {
     let recipe;
+    console.log(event)
     const recipeID = parseInt(event.target.closest('article').id)
     console.log(recipeID)
     if (recipeID !== undefined) {
         recipe = recipeRepo.recipes.find(rec => rec.id === recipeID)
-        console.log(recipe)
     }
     showFullCard(recipe);
 }
 
 const showFullCard = recipe => {
     fullCardImage.src = recipe.image;
-    //alt text update
+    fullCardImage.alt = recipe.name;
     fullCardName.innerText = recipe.name;
     recipeInstructions.innerHTML = getInstructions(recipe);
     totalCost.innerText = `total cost: $${recipe.getTotalCostOfIngredients()}`;
