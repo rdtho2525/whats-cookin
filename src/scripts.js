@@ -74,16 +74,13 @@ const displayRecipes = (array) => {
 //CAROUSEL - "MOST POPULAR RECIPES OF THE WEEK"
 
 //VIEW FULL RECIPE CARD - DIRECTIONS, INGREDIENTS, TOTAL COST
-
-function getTesting() {
-    // console.log(findRecipe[0])
-    const result = findRecipe[0].instructions.map(ele => {
-        return `<li class="item">${ele.instruction}</li>`
-    })
-    return recipeInstructions.innerHTML = result.join('\n');
-}
-
-getTesting();
+const addClass = (element, className) => {
+    element.classList.add(className || "hidden");
+  };
+  
+const removeClass = (element, className) => {
+    element.classList.remove(className || "hidden");
+  };
 
 const changeToFullCard = event => {
     let recipe;
@@ -97,11 +94,21 @@ const changeToFullCard = event => {
 const showFullCard = recipe => {
     fullCardImage.src = recipe.image;//update image
     fullCardName.innerText = recipe.name//update title
-    //update directions
+    recipeInstructions.innerHTML = getInstructions(recipe)//update instructions
     totalCost.innerText = `total cost: ${recipe.getTotalCostOfIngredients()}`//update cost
     //update ingredients
     removeClass(modalContainer); //unhide full card
 }
+
+const getInstructions = recipe => {
+    const result = recipe.instructions.map(ele => {
+        return `<li class="item">${ele.instruction}</li>`
+    })
+    return result.join('\n');
+}
+
+const testRecipe = new Recipe(recipeData[0])//for testing only
+showFullCard(testRecipe)
 
 
 
@@ -132,13 +139,7 @@ const filterRecipes = () => {
     return displayRecipes(recipeCards);
 }
 
-const addClass = (element, className) => {
-    element.classList.add(className || "hidden");
-  };
-  
-const removeClass = (element, className) => {
-    element.classList.remove(className || "hidden");
-  };
+
 //combine display and filter for event lister, on change to input
 
 
