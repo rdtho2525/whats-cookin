@@ -94,6 +94,7 @@ const changeToFullCard = event => {
 
 const showFullCard = recipe => {
     fullCardImage.src = recipe.image;
+    //alt text update
     fullCardName.innerText = recipe.name;
     recipeInstructions.innerHTML = getInstructions(recipe);
     totalCost.innerText = `total cost: $${recipe.getTotalCostOfIngredients()}`;
