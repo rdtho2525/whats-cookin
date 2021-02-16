@@ -36,7 +36,8 @@ const ingredientsNeeded = document.querySelector('#ingredientsNeeded');
 const instructionsTitle = document.querySelector('#instructionsTitle');
 const recipeInstructions = document.querySelector('#recipeInstructions');
 const exitFullCardButton = document.querySelector('#exitFullCard');
-const searchButton = document.querySelector('#searchButton')
+const searchButton = document.querySelector('#searchButton');
+const recipeListTitle = document.querySelector('#recipeListTitle')
 
 //FUNCTIONS//
 
@@ -47,6 +48,7 @@ const getRandomIndex = array => {
 
 //unsure where to make this declaration
 const currentUser = new User(usersData[getRandomIndex(usersData)]);
+currentUser.favoriteRecipes.push(recipeRepo.recipes[3])
 
 
 const greetUser = () => {
@@ -148,6 +150,10 @@ const filterRecipes = () => {
     return displayRecipes(recipeCards);
 }
 
+const changeTitle = event => {
+    return recipeListTitle.innerText = `Currently Viewing: ${event.target.value}`
+}
+
 
 //combine display and filter for event lister, on change to input
 
@@ -163,4 +169,12 @@ exitFullCardButton.addEventListener('click', function() {
 
 cardContainer.addEventListener('click', function(event) {
     changeToFullCard(event);
+});
+allRecipes.addEventListener('click', function(event) {
+    changeTitle(event);
+    filterRecipes();
+})
+favRecipesButton.addEventListener('click', function(event) {
+    changeTitle(event);
+    displayRecipes(currentUser.favoriteRecipes);
 })
