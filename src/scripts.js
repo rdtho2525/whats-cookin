@@ -128,7 +128,6 @@ const getIngredients = recipe => {
 const filterRecipes = () => {
 
     if (searchField.value === '' || searchFilter.value === '') {
-        
         return alert('Please fill in all search fields'); 
     }
 
@@ -148,14 +147,17 @@ const filterRecipes = () => {
             console.log('this ingredient')
             recipeCards = recipeRepo.filterByIngredient(userInput);
             break;
-        default:
-            console.log('keep trying');
-            recipeCards = recipeRepo.recipes;
-            break;
+        // default:
+        //     console.log('keep trying');
+        //     recipeCards = recipeRepo.recipes;////remove this block?
+        //     break;
     }
     searchField.value = '';
     return displayRecipes(recipeCards);
 }
+
+
+
 
 const changeTitle = event => {
     return recipeListTitle.innerText = `Currently Viewing: ${event.target.value}`
@@ -166,7 +168,9 @@ const changeTitle = event => {
 
 
 //EVENT LISTENERS **AT BOTTOM**//
-window.addEventListener('load', filterRecipes);
+window.addEventListener('load', function() {
+    displayRecipes(recipeRepo.recipes);
+});
 window.addEventListener('load', greetUser);
 
 exitFullCardButton.addEventListener('click', function() {
@@ -181,7 +185,7 @@ cardContainer.addEventListener('click', function(event) {
 
 allRecipes.addEventListener('click', function(event) {
     changeTitle(event);
-    filterRecipes();
+    displayRecipes(recipeRepo.recipes);
 })
 favRecipesButton.addEventListener('click', function(event) {
     changeTitle(event);
@@ -203,3 +207,6 @@ searchButton.addEventListener('click', filterRecipes);
 //adjust search feature and header display
 //**fix filterRecipes function (break out main block called on load into separate function)
 //make search button more obvious as a search button
+
+//fix nav page
+//-
