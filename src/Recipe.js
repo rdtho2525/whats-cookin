@@ -21,10 +21,10 @@ class Recipe {
     const cost = this.ingredients.reduce((totalCost, ingredient) => {
       const findCost = ingredientsData.find(element => ingredient.id === element.id);
       const estimatedCostInDollars = (findCost.estimatedCostInCents * ingredient.quantity.amount) / 100;
-      return totalCost + Number((estimatedCostInDollars).toFixed(2));
+      return totalCost + estimatedCostInDollars
     }, 0)
 
-    return cost
+    return Math.round(cost * 100) / 100; 
   }
 
   getInstructions() {

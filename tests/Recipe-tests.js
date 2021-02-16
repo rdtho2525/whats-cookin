@@ -52,7 +52,7 @@ describe('Recipe', () => {
   });
 
   it('should be able to calculate the total cost of ingredients required', () => {
-    expect(recipe.getTotalCostOfIngredients()).to.equal(177.75);
+    expect(recipe.getTotalCostOfIngredients()).to.equal(177.76);
   });
 
   it('should be able to return recipe\'s instructions', () => {
