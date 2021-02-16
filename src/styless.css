@@ -152,6 +152,10 @@ h1 {
   width: 100%;
 }
 
+.ingredient {
+  width: 200px;
+}
+
 .inside {
   list-style-position: inside;
 }
@@ -175,7 +179,7 @@ h1 {
 }
 
 .ingredient-items > li {
-  width: 100px;
+  width: 200px;
 }
 
 .item {
@@ -221,10 +225,7 @@ h1 {
   justify-content: space-between;
   background-color: rgba(235, 233, 233, 0.75);
 }
-/* PICK UP HERE. suggestion: remove image as a tag for carousel and add image as background 
-1. research if background image can be dynamic by using css (style.backgroundImage = 'url("")
-2. last option: hardcard multiple background image classes
-*/
+
 .recipe-name {
   font-size: 2em;
   padding: 0.25em;

@@ -12,8 +12,6 @@
 // </p> }
 
 const recipeRepo = new RecipeRepo();
-const findRecipe = recipeRepo.recipes.filter(recipe => recipe.id === 325208);//for testing only
-
 
 
 //DOM ELEMENTS//
@@ -114,7 +112,7 @@ const getInstructions = recipe => {
 const getIngredients = recipe => {
     const ingredients = recipe.getIngredientNames();
     const result = ingredients.map((ingr, i) => {
-        return `<li>${ingr}: ${recipe.ingredients[i].quantity.amount} ${recipe.ingredients[i].quantity.unit}</li>`;
+        return `<li>${ingr}:  ${recipe.ingredients[i].quantity.amount} ${recipe.ingredients[i].quantity.unit}</li>`;
     })
     return result.join('\n');
 }
