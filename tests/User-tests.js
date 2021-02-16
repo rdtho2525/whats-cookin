@@ -103,7 +103,7 @@ describe('User', () => {
       "ingredient": 9040,
       "amount": 10
     }];
-    expect(user.checkForIngredients(user.recipesToCook[0])).to.equal('Oh no! You are missing 10 ingredients.');
+    expect(user.checkForIngredients(user.recipesToCook[0]).length).to.equal(10);
 
   });
 
@@ -143,16 +143,28 @@ describe('User', () => {
       "ingredient": 9040,
       "amount": 12
     }];
-    expect(user.checkForIngredients(user.recipesToCook)).to.equal('Great! You have all the ingredients you need.');
+    expect(user.checkForIngredients(user.recipesToCook)).to.equal(true);
 
   });
 
 
   it.skip('should be able to identify which of the recipe\'s ingredients are missing from the pantry', () => {
-    user.recipesToCook = [recipeRepo[3]];
-    const test = user.checkForIngredients(user.recipesToCook);
-    user.findMissingIngredients(test);
-    expect(user.findMissingIngredients(test)).to.equal('Oh no! You don\'t have any lime peel')
+    user.recipesToCook = [recipeRepo.recipes[3]];
+    user.pantry = [{
+      "ingredient": 20081,
+      "amount": 4
+    },
+    {
+      "ingredient": 18371,
+      "amount": 4
+    },
+    {
+      "ingredient": 9040,
+      "amount": 10
+    }];
+    const testIngredients = user.checkForIngredients(user.recipesToCook);
+    user.findMissingIngredients(testIngredients);
+    expect(user.findMissingIngredients(testIngredients)).to.equal(/*message listing missing ingredient names*/)
   });
 
   it.skip('should be able to subtract from the pantry all ingredients used in a recipe', () => {

@@ -73,14 +73,12 @@ class User {
     const result = [...itemsNotInPantry, ...lowQuantityItems];
     if (result.length) {
       return result
-      // return `Oh no! You are missing ${result.length} ingredients.`;
     } else {
-      // return `Great! You have all the ingredients you need.`;
       return true 
     }
   }
 
-  findMissingIngredients(result) {
+  findMissingIngredients() {
       
   }
 
