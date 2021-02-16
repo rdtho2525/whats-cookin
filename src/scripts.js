@@ -85,11 +85,11 @@ const removeClass = (element, className) => {
 
 const changeToFullCard = event => {
     let recipe;
-    console.log(event)
-    const recipeID = parseInt(event.target.closest('article').id)
-    console.log(recipeID)
-    if (recipeID !== undefined) {
-        recipe = recipeRepo.recipes.find(rec => rec.id === recipeID)
+    const recipeID = parseInt(event.target.closest('article').id);
+    if (recipeID.toString() === 'NaN') {
+        return;
+    } else {
+        recipe = recipeRepo.recipes.find(rec => rec.id === recipeID);
     }
     showFullCard(recipe);
 }
