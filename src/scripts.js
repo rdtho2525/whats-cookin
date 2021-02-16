@@ -48,8 +48,9 @@ const getRandomIndex = array => {
 
 //unsure where to make this declaration
 const currentUser = new User(usersData[getRandomIndex(usersData)]);
-currentUser.favoriteRecipes.push(recipeRepo.recipes[3])
 
+currentUser.favoriteRecipes.push(recipeRepo.recipes[3])//for testing only
+currentUser.recipesToCook.push(recipeRepo.recipes[3])//for testing only
 
 const greetUser = () => {
     const firstName = currentUser.name.split(' ', 2);
@@ -125,6 +126,12 @@ const getIngredients = recipe => {
 
 //FILTER RECIPES BY TAG, NAME, INGREDIENTS
 const filterRecipes = () => {
+
+    if (searchField.value === '' || searchFilter.value === '') {
+        
+        return alert('Please fill in all search fields'); 
+    }
+
     const filterValue = searchFilter.value;
     const userInput = searchField.value.toLowerCase();
     let recipeCards = [];
@@ -161,7 +168,6 @@ const changeTitle = event => {
 //EVENT LISTENERS **AT BOTTOM**//
 window.addEventListener('load', filterRecipes);
 window.addEventListener('load', greetUser);
-searchButton.addEventListener('click', filterRecipes);
 
 exitFullCardButton.addEventListener('click', function() {
     addClass(modalContainer);
@@ -170,6 +176,9 @@ exitFullCardButton.addEventListener('click', function() {
 cardContainer.addEventListener('click', function(event) {
     changeToFullCard(event);
 });
+
+
+
 allRecipes.addEventListener('click', function(event) {
     changeTitle(event);
     filterRecipes();
@@ -178,3 +187,19 @@ favRecipesButton.addEventListener('click', function(event) {
     changeTitle(event);
     displayRecipes(currentUser.favoriteRecipes);
 })
+
+recipesToCookButton.addEventListener('click', function(event) {
+    changeTitle(event);
+    displayRecipes(currentUser.recipesToCook)
+})
+
+searchButton.addEventListener('click', filterRecipes);
+
+//Reggie:
+//fix cost in full card
+//user methods - trying to finish it3 user methods by 1:30. otherwise will add PR for what is finished for it2
+
+//Jeff:
+//adjust search feature and header display
+//**fix filterRecipes function (break out main block called on load into separate function)
+//make search button more obvious as a search button
