@@ -12,6 +12,9 @@
         <img src="" alt="What's Cookin' Logo">
         <ul class="nav-links list">
           <li>
+            <button id="allRecipes" class="click">All Recipes</button>
+          </li>
+          <li>
             <button id="favoriteRecipes" class="click">Favorite Recipes</button>
           </li>
           <li>
@@ -22,12 +25,13 @@
             <aside class="search-filter">
               <label for="search-filter">Search by:</label>
               <select id="searchFilter" class="click" name="search-filter" id="search-filter">
-                <option value="" disabled selected></option>
+                <option value="" selected></option>
                 <option value="name">Name</option>
                 <option value="tag">Tag</option>
                 <option value="ingredients">Ingredients</option>
               </select>
             </aside>
+            <button id="searchButton" class="click" type="submit">Search</button>
           </li>
         </ul>
       </nav>

@@ -36,6 +36,7 @@ const ingredientsNeeded = document.querySelector('#ingredientsNeeded');
 const instructionsTitle = document.querySelector('#instructionsTitle');
 const recipeInstructions = document.querySelector('#recipeInstructions');
 const exitFullCardButton = document.querySelector('#exitFullCard');
+const searchButton = document.querySelector('#searchButton')
 
 //FUNCTIONS//
 
@@ -143,7 +144,7 @@ const filterRecipes = () => {
             recipeCards = recipeRepo.recipes;
             break;
     }
-
+    searchField.value = '';
     return displayRecipes(recipeCards);
 }
 
@@ -154,7 +155,7 @@ const filterRecipes = () => {
 //EVENT LISTENERS **AT BOTTOM**//
 window.addEventListener('load', filterRecipes);
 window.addEventListener('load', greetUser);
-searchFilter.addEventListener('change', filterRecipes);
+searchButton.addEventListener('click', filterRecipes);
 
 exitFullCardButton.addEventListener('click', function() {
     addClass(modalContainer);
