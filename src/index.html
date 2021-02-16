@@ -12,52 +12,45 @@
         <img src="" alt="What's Cookin' Logo">
         <ul class="nav-links list">
           <li>
-            <button id="favoriteRecipes" class="click">Favorite Recipes</button>
+            <button id="allRecipes" class="click" value="All Recipes">All Recipes</button>
           </li>
           <li>
-            <button id="recipesToCook" class="click">Recipes to Cook</button>
+            <button id="favoriteRecipes" class="click" value="Favorite Recipes">Favorite Recipes</button>
+          </li>
+          <li>
+            <button id="recipesToCook" class="click" value="Recipes to Cook">Recipes to Cook</button>
           </li>
           <li id="userSearch" class="user-input">
             <input id="searchField" type="text" name="search-field" placeholder="Search for recipes..">
             <aside class="search-filter">
               <label for="search-filter">Search by:</label>
               <select id="searchFilter" class="click" name="search-filter" id="search-filter">
-                <option value="" disabled selected></option>
+                <option value="" selected></option>
                 <option value="name">Name</option>
                 <option value="tag">Tag</option>
                 <option value="ingredients">Ingredients</option>
               </select>
             </aside>
+            <button id="searchButton" class="click" type="submit">Search</button>
           </li>
         </ul>
       </nav>
     </div>
     
     <div class="page-right">
-        <div id="modalContainer" class="modal-container"> <!-- unhide to test -->
+        <div id="modalContainer" class="modal-container hidden"> <!-- unhide to test -->
           <section id="fullRecipeCard" class="full-recipe-card">
-            <img id="fullCardImage" src="https://spoonacular.com/recipeImages/595736-556x370.jpg" alt="cookies">
+            <button id="exitFullCard" class="exit-full-card click">X</button>
+            <img id="fullCardImage" src="" alt="">
             <div class="recipe-name space-between">
-              <p id="fullCardName" >Loaded Chocolate Chip Pudding Cookie Cups</p>
-              <p id="totalCost">total cost: $100.00</p>
+              <p id="fullCardName"></p>
+              <p id="totalCost"></p>
             </div>
             <p id="ingredientsTitle" class="recipe-name">Ingredients:</p>
             <ul id="ingredientsNeeded" class="inside ingredient-items full-card-text">
-              <li>Salt - 20oz</li>
-              <li>Sugar - 50tbs</li>
-              <li>Chocolate - 15tps</li>
-              <li>Love</li>
-              <li>Love</li>
-              <li>Love</li>
-              <li>Love</li>
-              <li>Love</li>
-              <li>Love</li>
             </ul>
             <p id="instructionsTitle" class="recipe-name">Instructions:</p>
             <ol id="recipeInstructions" class="inside full-card-text">
-              <li>Preheat oven</li>
-              <li>Magic</li>
-              <li>Cookies are done</li>
             </ol>
           </section>
         </div>
@@ -90,32 +83,12 @@
         </section>
         <section id="allRecipesSection" class="recipes-list">
           <header>
-            <h2 class="recipe-list-title">Currently Viewing: All Recipes</h2>
+            <h2 id=recipeListTitle class="recipe-list-title">Currently Viewing: All Recipes</h2>
           </header>
-          <div id="cardContainer" class="card-container">
-            <article class="recipe-card left click"> <!-- remove article after testing -->
-              <img src="https://spoonacular.com/recipeImages/595736-556x370.jpg" alt="chocolate chip cookies">
-              <p id="" class="recipe-name">Loaded Chocolate Chip Pudding Cookie Cups</p>
-              <p id="" class="recipe-tags">
-                <ul class="list tag">
-                  <li>Antipasti</li>
-                  <li>Starter</li>
-                  <li>Snack</li>
-                </ul>
-              </p>
-            </article>
-            <article class="recipe-card right click"> <!-- remove article after testing -->
-              <img src="https://spoonacular.com/recipeImages/678353-556x370.jpg" alt="grilled prok chops">
-              <p id="" class="recipe-name">Maple Dijon Apple Cider Grilled Pork Chops</p>
-              <p id="" class="recipe-tags">
-                <ul class="list tag">
-                  <li>Lunch</li>
-                  <li>Main Course</li>
-                  <li>Dinner</li>
-                </ul>
-              </p>
-            </article>
-          </div>
+
+          <article id="cardContainer" class="card-container">
+          </article>
+
         </section>
       </main>
     </div>

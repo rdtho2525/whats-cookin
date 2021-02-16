@@ -131,9 +131,29 @@ h1 {
   overflow: scroll;
 }
 
+.exit-full-card {
+  height: 35px;
+  width: 35px;
+  background-color: black;
+  color: white;
+  font-size: 1.4em;
+  align-items: center;
+  border-radius: 5px;
+  position: absolute;
+  transform: translate(1700%, 10%);
+}
+
+.exit-full-card:hover{
+  background-color: grey;
+}
+
 #fullCardImage {
   height: 437px;
   width: 100%;
+}
+
+.ingredient {
+  width: 200px;
 }
 
 .inside {
@@ -159,7 +179,7 @@ h1 {
 }
 
 .ingredient-items > li {
-  width: 100px;
+  width: 200px;
 }
 
 .item {
@@ -205,10 +225,7 @@ h1 {
   justify-content: space-between;
   background-color: rgba(235, 233, 233, 0.75);
 }
-/* PICK UP HERE. suggestion: remove image as a tag for carousel and add image as background 
-1. research if background image can be dynamic by using css (style.backgroundImage = 'url("")
-2. last option: hardcard multiple background image classes
-*/
+
 .recipe-name {
   font-size: 2em;
   padding: 0.25em;

@@ -12,8 +12,6 @@
 // </p> }
 
 const recipeRepo = new RecipeRepo();
-const findRecipe = recipeRepo.recipes.filter(recipe => recipe.id === 325208);//for testing only
-
 
 
 //DOM ELEMENTS//
@@ -37,6 +35,9 @@ const ingredientsTitle = document.querySelector('#ingredientsTitle');
 const ingredientsNeeded = document.querySelector('#ingredientsNeeded');
 const instructionsTitle = document.querySelector('#instructionsTitle');
 const recipeInstructions = document.querySelector('#recipeInstructions');
+const exitFullCardButton = document.querySelector('#exitFullCard');
+const searchButton = document.querySelector('#searchButton');
+const recipeListTitle = document.querySelector('#recipeListTitle')
 
 //FUNCTIONS//
 
@@ -47,6 +48,7 @@ const getRandomIndex = array => {
 
 //unsure where to make this declaration
 const currentUser = new User(usersData[getRandomIndex(usersData)]);
+currentUser.favoriteRecipes.push(recipeRepo.recipes[3])
 
 
 const greetUser = () => {
@@ -74,34 +76,50 @@ const displayRecipes = (array) => {
 //CAROUSEL - "MOST POPULAR RECIPES OF THE WEEK"
 
 //VIEW FULL RECIPE CARD - DIRECTIONS, INGREDIENTS, TOTAL COST
-
-function getTesting() {
-    // console.log(findRecipe[0])
-    const result = findRecipe[0].instructions.map(ele => {
-        return `<li class="item">${ele.instruction}</li>`
-    })
-    return recipeInstructions.innerHTML = result.join('\n');
-}
-
-getTesting();
+const addClass = (element, className) => {
+    element.classList.add(className || "hidden");
+  };
+  
+const removeClass = (element, className) => {
+    element.classList.remove(className || "hidden");
+  };
 
 const changeToFullCard = event => {
     let recipe;
-    const id = event.target.closest('article').id
-    if (id !== undefined) {
-        recipe = RecipeRepo.recipes.find(recipe => recipe.id === id)
+    const recipeID = parseInt(event.target.closest('article').id);
+    if (recipeID.toString() === 'NaN') {
+        return;
+    } else {
+        recipe = recipeRepo.recipes.find(rec => rec.id === recipeID);
     }
     showFullCard(recipe);
 }
 
 const showFullCard = recipe => {
-    fullCardImage.src = recipe.image;//update image
-    fullCardName.innerText = recipe.name//update title
-    //update directions
-    totalCost.innerText = `total cost: ${recipe.getTotalCostOfIngredients()}`//update cost
-    //update ingredients
-    removeClass(modalContainer); //unhide full card
+    fullCardImage.src = recipe.image;
+    fullCardImage.alt = recipe.name;
+    fullCardName.innerText = recipe.name;
+    recipeInstructions.innerHTML = getInstructions(recipe);
+    totalCost.innerText = `total cost: $${recipe.getTotalCostOfIngredients()}`;
+    ingredientsNeeded.innerHTML = getIngredients(recipe);
+    removeClass(modalContainer);
 }
+
+const getInstructions = recipe => {
+    const result = recipe.instructions.map(ele => {
+        return `<li class="item">${ele.instruction}</li>`;
+    })
+    return result.join('\n');
+}
+
+const getIngredients = recipe => {
+    const ingredients = recipe.getIngredientNames();
+    const result = ingredients.map((ingr, i) => {
+        return `<li>${ingr}:  ${recipe.ingredients[i].quantity.amount} ${recipe.ingredients[i].quantity.unit}</li>`;
+    })
+    return result.join('\n');
+}
+
 
 
 
@@ -128,21 +146,35 @@ const filterRecipes = () => {
             recipeCards = recipeRepo.recipes;
             break;
     }
-
+    searchField.value = '';
     return displayRecipes(recipeCards);
 }
 
-const addClass = (element, className) => {
-    element.classList.add(className || "hidden");
-  };
-  
-const removeClass = (element, className) => {
-    element.classList.remove(className || "hidden");
-  };
+const changeTitle = event => {
+    return recipeListTitle.innerText = `Currently Viewing: ${event.target.value}`
+}
+
+
 //combine display and filter for event lister, on change to input
 
 
 //EVENT LISTENERS **AT BOTTOM**//
 window.addEventListener('load', filterRecipes);
 window.addEventListener('load', greetUser);
-searchFilter.addEventListener('change', filterRecipes);
+searchButton.addEventListener('click', filterRecipes);
+
+exitFullCardButton.addEventListener('click', function() {
+    addClass(modalContainer);
+})
+
+cardContainer.addEventListener('click', function(event) {
+    changeToFullCard(event);
+});
+allRecipes.addEventListener('click', function(event) {
+    changeTitle(event);
+    filterRecipes();
+})
+favRecipesButton.addEventListener('click', function(event) {
+    changeTitle(event);
+    displayRecipes(currentUser.favoriteRecipes);
+})
