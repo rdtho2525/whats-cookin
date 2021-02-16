@@ -4,13 +4,17 @@ const expect = chai.expect;
 const usersData = require('../data/users');
 const recipeData = require('../data/recipes');
 const Recipe = require('../src/Recipe');
+const RecipeRepo = require('../src/RecipeRepo');
+const { indexOf } = require('../data/ingredients');
 
 describe('User', () => {
 
   let user;
+  let recipeRepo;
 
   beforeEach(() => {
     user = new User(usersData[0]);
+    recipeRepo = new RecipeRepo();
   });
 
   it('should be a function', () => {
@@ -62,4 +66,104 @@ describe('User', () => {
     expect(user.recipesToCook).to.deep.equal([recipe]);
   });
 
+  it('should be able to filter recipes by name', () => {
+    user.favoriteRecipes = recipeRepo.recipes;
+    const result = user.filterByName('Elvis Pancakes', 'favoriteRecipes');
+    // console.log(user.favoriteRecipes);
+    expect(result[0].name).to.equal('Elvis Pancakes');
+    expect(result.length).to.equal(1);
+  });
+
+  it('should be able to filter recipes by tag', () => {
+    user.favoriteRecipes = recipeRepo.recipes;
+    const result = user.filterByTag('side dish', 'favoriteRecipes');
+    expect(result[0].name).to.equal('Elvis Pancakes');
+    expect(result.length).to.equal(22);
+  });
+
+  it('should be able to filter recipes by ingredients', () => {
+    user.favoriteRecipes = recipeRepo.recipes;
+    const result = user.filterByIngredients('almondmilk', 'favoriteRecipes');
+    expect(result[0].name).to.equal('Pumpkin Cheesecake Breakfast Smoothie');
+    expect(result.length).to.equal(1);
+  });
+
+  it('should be able to check pantry for a recipe\'s necessary ingredients', () => {
+    user.recipesToCook = [recipeRepo.recipes[3]];
+
+    user.pantry = [{
+      "ingredient": 20081,
+      "amount": 4
+    },
+    {
+      "ingredient": 18371,
+      "amount": 4
+    },
+    {
+      "ingredient": 9040,
+      "amount": 10
+    }];
+    expect(user.checkForIngredients(user.recipesToCook[0])).to.equal('Oh no! You are missing 10 ingredients.');
+
+  });
+
+  it('should be able to check pantry for a recipe\'s necessary ingredients', () => {
+    user.recipesToCook = [recipeRepo.recipes[3]];
+    user.recipesToCook.ingredients = [
+    {
+      "id": 20081,
+      "quantity": {
+        "amount": 1,
+        "unit": "cup"
+      }
+    },
+    {
+      "id": 18371,
+      "quantity": {
+        "amount": 2,
+        "unit": "teaspoons"
+      }
+    },
+    {
+      "id": 9040,
+      "quantity": {
+        "amount": 12,
+      "unit": "servings"
+     }
+    }];
+    user.pantry = [{
+      "ingredient": 20081,
+      "amount": 4
+    },
+    {
+      "ingredient": 18371,
+      "amount": 4
+    },
+    {
+      "ingredient": 9040,
+      "amount": 12
+    }];
+    expect(user.checkForIngredients(user.recipesToCook)).to.equal('Great! You have all the ingredients you need.');
+
+  });
+
+
+  it.skip('should be able to identify which of the recipe\'s ingredients are missing from the pantry', () => {
+    user.recipesToCook = [recipeRepo[3]];
+    const test = user.checkForIngredients(user.recipesToCook);
+    user.findMissingIngredients(test);
+    expect(user.findMissingIngredients(test)).to.equal('Oh no! You don\'t have any lime peel')
+  });
+
+  it.skip('should be able to subtract from the pantry all ingredients used in a recipe', () => {
+    user.recipesToCook = [recipeRepo.recipes[3]];
+    expect(user.pantry[indexOf('eggs')].amount).to.equal(4);
+
+    user.consumeIngredients();
+    expect(user.pantry[indexOf('eggs')].amount).to.equal(2);
+  });
+
+  it.skip('should be able to cook a meal', () => {
+
+  });
 });
