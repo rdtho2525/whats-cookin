@@ -69,7 +69,6 @@ describe('User', () => {
   it('should be able to filter recipes by name', () => {
     user.favoriteRecipes = recipeRepo.recipes;
     const result = user.filterByName('Elvis Pancakes', 'favoriteRecipes');
-    // console.log(user.favoriteRecipes);
     expect(result[0].name).to.equal('Elvis Pancakes');
     expect(result.length).to.equal(1);
   });
