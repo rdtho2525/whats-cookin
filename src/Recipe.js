@@ -18,13 +18,13 @@ class Recipe {
   }
 
   getTotalCostOfIngredients() {
-    const cost = this.ingredients.reduce((totalCost, ingredient) => {
+    let cost = this.ingredients.reduce((totalCost, ingredient) => {
       const findCost = ingredientsData.find(element => ingredient.id === element.id);
       const estimatedCostInDollars = (findCost.estimatedCostInCents * ingredient.quantity.amount) / 100;
-      return totalCost + Number((estimatedCostInDollars).toFixed(2));
+      return totalCost + estimatedCostInDollars;
     }, 0)
-
-    return cost
+    cost = Math.round(cost * 100) / 100;
+    return cost;
   }
 
   getInstructions() {
