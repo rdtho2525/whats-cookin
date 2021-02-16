@@ -138,14 +138,17 @@ const filterRecipes = () => {
         case 'name':
             console.log('this name')
             recipeCards = recipeRepo.filterByName(userInput);
+            changeTitleOnFilter(userInput)
             break;
         case 'tag':
             console.log('this tag')
             recipeCards = recipeRepo.filterByTag(userInput);
+            changeTitleOnFilter(userInput)
             break;
         case 'ingredients':
             console.log('this ingredient')
             recipeCards = recipeRepo.filterByIngredient(userInput);
+            changeTitleOnFilter(userInput)
             break;
         // default:
         //     console.log('keep trying');
@@ -163,6 +166,9 @@ const changeTitle = event => {
     return recipeListTitle.innerText = `Currently Viewing: ${event.target.value}`
 }
 
+const changeTitleOnFilter = filterValue => {
+    return recipeListTitle.innerText = `Currently Viewing: All Recipes filtered by '${filterValue}'`
+}
 
 //combine display and filter for event lister, on change to input
 
@@ -199,14 +205,3 @@ recipesToCookButton.addEventListener('click', function(event) {
 
 searchButton.addEventListener('click', filterRecipes);
 
-//Reggie:
-//fix cost in full card
-//user methods - trying to finish it3 user methods by 1:30. otherwise will add PR for what is finished for it2
-
-//Jeff:
-//adjust search feature and header display
-//**fix filterRecipes function (break out main block called on load into separate function)
-//make search button more obvious as a search button
-
-//fix nav page
-//-

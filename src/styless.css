@@ -284,6 +284,13 @@ h1 {
   width: 5em;
 }
 
+.search-instruction {
+  font-size: 0.1em;
+  margin-top: -5px;
+  font-family: 'Times New Roman', Times, serif;
+  white-space: nowrap;
+}
+
 /* FULL RECIPE CARD (MODAL) */
 .dimmed {
   position: relative;
