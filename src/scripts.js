@@ -17,7 +17,7 @@ const getRandomIndex = array => {
     return Math.floor(Math.random() * array.length)
 }
 
-const recipeRepo = new RecipeRepo();
+const recipeRepo = new RecipeRepo(recipeData);
 const currentUser = new User(usersData[getRandomIndex(usersData)]);
 
 currentUser.favoriteRecipes.push(recipeRepo.recipes[3])//for testing only
@@ -104,7 +104,7 @@ const showFullCard = recipe => {
     fullCardImage.alt = recipe.name;
     fullCardName.innerText = recipe.name;
     recipeInstructions.innerHTML = getInstructions(recipe);
-    totalCost.innerText = `total cost: $${recipe.getTotalCostOfIngredients()}`;
+    totalCost.innerText = `total cost: $${recipe.getTotalCostOfIngredients(ingredientsData)}`;
     ingredientsNeeded.innerHTML = getIngredients(recipe);
     removeClass(modalContainer);
 }
@@ -117,7 +117,7 @@ const getInstructions = recipe => {
 }
 
 const getIngredients = recipe => {
-    const ingredients = recipe.getIngredientNames();
+    const ingredients = recipe.getIngredientNames(ingredientsData);
     const result = ingredients.map((ingr, i) => {
         return `<li>${ingr}:  ${recipe.ingredients[i].quantity.amount} ${recipe.ingredients[i].quantity.unit}</li>`;
     })
@@ -164,7 +164,7 @@ const filterFavoriteRecipes = (filterValue, userInput) => {
         case 'ingredients':
             userInput = searchField.value.toLowerCase();
             changeTitleOnFilter(userInput, 'Favorite Recipes');
-            return currentUser.filterByIngredients(userInput, 'favoriteRecipes');//add third arguement after reggie PR on User methods
+            return currentUser.filterByIngredients(userInput, 'favoriteRecipes', ingredientsData);
     }
 }
 
@@ -181,7 +181,7 @@ const filterAllRecipes = (filterValue, userInput) => {
         case 'ingredients':
             userInput = searchField.value.toLowerCase();
             changeTitleOnFilter(userInput, 'All Recipes');
-            return recipeRepo.filterByIngredient(userInput);
+            return recipeRepo.filterByIngredient(userInput, ingredientsData);
     }
 }
 
