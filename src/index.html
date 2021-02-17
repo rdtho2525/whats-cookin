@@ -10,31 +10,26 @@
     <div class="page-left">
       <nav id="navigation" class="nav-section">
         <img src="" alt="What's Cookin' Logo">
-        <ul class="nav-links list">
-          <li>
-            <button id="allRecipes" class="click" value="All Recipes">All Recipes</button>
-          </li>
-          <li>
-            <button id="favoriteRecipes" class="click" value="Favorite Recipes">Favorite Recipes</button>
-          </li>
-          <li>
-            <button id="recipesToCook" class="click" value="Recipes to Cook">Recipes to Cook</button>
-          </li>
-          <li id="userSearch" class="user-input">
-            <input id="searchField" type="text" name="search-field" placeholder="Search for recipes..">
-            <p class="search-instruction">separate multiple search values with commmas</p>
-            <aside class="search-filter">
-              <label for="search-filter">Search by:</label>
-              <select id="searchFilter" class="click" name="search-filter" id="search-filter">
-                <option value="" selected></option>
-                <option value="name">Name</option>
-                <option value="tag">Tag</option>
-                <option value="ingredients">Ingredients</option>
-              </select>
-            </aside>
-            <button id="searchButton" class="click" type="submit">Search</button>
-          </li>
-        </ul>
+        <section class="nav-links">
+
+              <button id="allRecipes" class="click" value="All Recipes">All Recipes</button>
+
+              <button id="favoriteRecipes" class="click" value="Favorite Recipes">Favorite Recipes</button>
+
+              <button id="recipesToCook" class="click" value="Recipes to Cook">Recipes to Cook</button>
+
+              <input id="searchField" type="text" name="search-field" placeholder="Search for recipes..">
+              <p class="search-instruction">separate multiple search values with commmas</p>
+                <label for="search-filter">Search by:</label>
+                <select id="searchFilter" class="click" name="search-filter" id="search-filter">
+                  <option value="" selected></option>
+                  <option value="name">Name</option>
+                  <option value="tag">Tag</option>
+                  <option value="ingredients">Ingredients</option>
+                </select>
+              <button id="searchButton" class="click" type="submit">Search</button>
+
+      </section>
       </nav>
     </div>
     

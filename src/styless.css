@@ -62,8 +62,9 @@ body {
   text-align: center;
 }
 
-.nav-links.list {
-  height: 175px;
+.nav-links {
+  height: 305px;
+  width: 50%;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -80,7 +81,7 @@ button {
   font-size: 1em;
 }
 
-.user-input > input {
+.nav-links > input {
   height: 2em;
   width: 100%;
   margin-bottom: 0.75em;
@@ -88,7 +89,7 @@ button {
   text-align: center;
 }
 
-.search-filter > select {
+#searchFilter {
   width: 90px; /* fix search by box as this update made it stack*/
 }
 
