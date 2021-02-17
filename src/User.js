@@ -49,11 +49,11 @@ class User {
     return this.removeDuplicates(recipes);
   }
 
-  filterByIngredients(searchString, list) {
+  filterByIngredients(searchString, list, ingredientArray) {
     const ingredients = searchString.split(',').map(tag => tag.trim());
     
     const recipes = this[list].reduce((matchingRecipes, recipe) => {
-      const recipeIngredients = recipe.getIngredientNames(this[list]);
+      const recipeIngredients = recipe.getIngredientNames(ingredientArray);
       ingredients.forEach(ingredientName => {
         if (recipeIngredients.includes(ingredientName)) {
           matchingRecipes.push(recipe);
@@ -67,9 +67,12 @@ class User {
     const pantryIDs = this.pantry.map(pantryIngredient => pantryIngredient.ingredient); 
     const itemsNotInPantry = recipe.ingredients.filter((recipeIngredient) => !pantryIDs.includes(recipeIngredient.id));
     const itemsInPantry = recipe.ingredients.filter((recipeIngredient) => pantryIDs.includes(recipeIngredient.id));
-    const lowQuantityItems = itemsInPantry.filter((item, i) => {
-      return item.quantity.amount > this.pantry[i].amount;
-    });
+    const lowQuantityItems = itemsInPantry.filter((recipeIngredient, i) => {
+
+      const pantryItems = this.pantry.filter(pantryIngredient => recipeIngredient.id === pantryIngredient.ingredient
+      );
+        return pantryItems[i].amount > recipeIngredient.quantity.amount
+      });
     const result = [...itemsNotInPantry, ...lowQuantityItems];
     if (result.length) {
       return result
@@ -78,8 +81,8 @@ class User {
     }
   }
 
-  findMissingIngredients() {
-      
+  findMissingIngredients(recipe, ingredientArray) {
+    const result = recipe.getIngredientNames(ingredientArray);
   }
 
   consumeIngredients() {
