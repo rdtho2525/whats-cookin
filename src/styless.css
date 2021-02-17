@@ -81,15 +81,21 @@ button {
   font-size: 1em;
 }
 
+.search-field-container {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
 .search-field-container > input {
   height: 2em;
-  width: 100%;
-  margin-bottom: 0.75em;
+  width: 70%;
   border-radius: 5px;
   text-align: center;
 }
 
-#searchFilter {
+.search-filter {
   width: 90px; /* fix search by box as this update made it stack*/
 }
 
