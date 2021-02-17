@@ -62,8 +62,10 @@ body {
   text-align: center;
 }
 
-.nav-links.list {
-  height: 175px;
+.nav-links {
+  height: 305px;
+  width: 50%;
+  min-width: 200px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -80,15 +82,42 @@ button {
   font-size: 1em;
 }
 
-.user-input > input {
-  height: 2em;
+.search-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  height: 40%;
+  margin-top: 10%
+}
+
+.search-field-container {
   width: 100%;
-  margin-bottom: 0.75em;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.search-field-container > input {
+  height: 2em;
+  width: 70%;
   border-radius: 5px;
   text-align: center;
 }
 
-.search-filter > select {
+.search-field-container > button {
+  height: 1.1em;
+  width: 1.6em;
+  font-size: 0.85em;
+  border-radius: 5px;
+  text-align: center;
+  background-color: lightgrey;
+}
+
+.search-label {
+  font-size: .7em;
+}
+
+.search-filter {
   width: 90px; /* fix search by box as this update made it stack*/
 }
 
@@ -197,7 +226,7 @@ h1 {
 }
 
 .center-piece {
-  height: 50%;
+  height: 52%;
   width: 650px;
   /* max-height: 55%; */
   display: flex;
@@ -213,7 +242,6 @@ h1 {
   flex-direction: column;
   justify-content: flex-end;
   background-size: cover;
-  /*strictly for test - dynamic in future */
   background-image: url(https://spoonacular.com/recipeImages/779583-556x370.jpg);
 }
 
@@ -222,7 +250,8 @@ h1 {
   width: 100%;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: space-around;
+  align-items: center;
   background-color: rgba(235, 233, 233, 0.75);
 }
 
@@ -258,12 +287,23 @@ h1 {
   margin-top: 7px;
   margin-bottom: 7px;
   background-color: #b9c5c7;  /*experiment color*/
-
 }
 
 .recipe-card > img {
   height: 75%;
   width: 100%;
+}
+
+.heart-container {
+  display: flex;
+  justify-content: space-between;
+}
+
+.fav-heart {
+  height: 30px;
+  width: 30px;
+  margin-top: 20%;
+  margin-right: 2%;
 }
 
 .tag {
@@ -283,6 +323,17 @@ h1 {
 .list > li {
   width: 5em;
 }
+
+.hero-tags {
+  margin-left: 20%;
+  display: flex;
+  align-items: center;
+}
+
+.first-tag {
+  font-size: 1.5em;
+}
+
 
 .search-instruction {
   font-size: 0.1em;
