@@ -226,7 +226,7 @@ h1 {
 }
 
 .center-piece {
-  height: 50%;
+  height: 52%;
   width: 650px;
   /* max-height: 55%; */
   display: flex;
@@ -242,7 +242,6 @@ h1 {
   flex-direction: column;
   justify-content: flex-end;
   background-size: cover;
-  /*strictly for test - dynamic in future */
   background-image: url(https://spoonacular.com/recipeImages/779583-556x370.jpg);
 }
 
@@ -251,7 +250,7 @@ h1 {
   width: 100%;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: space-around;
   background-color: rgba(235, 233, 233, 0.75);
 }
 
@@ -323,6 +322,17 @@ h1 {
 .list > li {
   width: 5em;
 }
+
+.hero-tags {
+  margin-left: 20%;
+  display: flex;
+  align-items: center;
+}
+
+.first-tag {
+  font-size: 1.5em;
+}
+
 
 .search-instruction {
   font-size: 0.1em;

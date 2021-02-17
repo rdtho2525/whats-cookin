@@ -11,8 +11,17 @@
 //     </ul>
 // </p> }
 
-const recipeRepo = new RecipeRepo();
 
+
+const getRandomIndex = array => {
+    return Math.floor(Math.random() * array.length)
+}
+
+const recipeRepo = new RecipeRepo();
+const currentUser = new User(usersData[getRandomIndex(usersData)]);
+
+currentUser.favoriteRecipes.push(recipeRepo.recipes[3])//for testing only
+currentUser.recipesToCook.push(recipeRepo.recipes[3])//for testing only
 
 //DOM ELEMENTS//
 const navSection = document.querySelector('#navigation');
@@ -42,17 +51,6 @@ const recipeListTitle = document.querySelector('#recipeListTitle')
 
 //FUNCTIONS//
 
-//SELECT RANDOM USER - ON LOAD//
-const getRandomIndex = array => {
-    return Math.floor(Math.random() * array.length)
-}
-
-//unsure where to make this declaration
-const currentUser = new User(usersData[getRandomIndex(usersData)]);
-
-currentUser.favoriteRecipes.push(recipeRepo.recipes[3])//for testing only
-currentUser.recipesToCook.push(recipeRepo.recipes[3])//for testing only
-
 const greetUser = () => {
     const firstName = currentUser.name.split(' ', 2);
     userGreeting.textContent = `Welcome to What's Cookin', ${firstName[0]}!`;
@@ -70,9 +68,8 @@ const displayRecipes = (array) => {
         <article id="${recipe.id}" class="recipe-card left click">
             <img src="${recipe.image}" alt="${recipe.name}">
             <div class="heart-container">
-            <p id="" class="recipe-name">${recipe.name}</p>
-            
-            <img class="fav-heart" src="../assets/emptyHeart.svg" alt="empty heart">
+                <p id="" class="recipe-name">${recipe.name}</p>
+                <img class="fav-heart" src="../assets/emptyHeart.svg" alt="empty heart">
             </div>
         </article>`
     });
@@ -167,7 +164,7 @@ const filterFavoriteRecipes = (filterValue, userInput) => {
         case 'ingredients':
             userInput = searchField.value.toLowerCase();
             changeTitleOnFilter(userInput, 'Favorite Recipes');
-            return currentUser.filterByIngredients(userInput, 'favoriteRecipes');
+            return currentUser.filterByIngredients(userInput, 'favoriteRecipes');//add third arguement after reggie PR on User methods
     }
 }
 
