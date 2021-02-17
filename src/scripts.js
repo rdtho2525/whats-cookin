@@ -3,14 +3,6 @@
 // const User = require('../src/User');
 // const RecipeRepo = require('../src/RecipeRepo');
 
-// { <p id="" class="recipe-tags">
-//     <ul class="list tag">
-//         <li>${recipe.tags[0] || null}</li>
-//         <li>${recipe.tags[1] || null}</li>
-//         <li>${recipe.tags[2] || null}</li>
-//     </ul>
-// </p> }
-
 
 
 const getRandomIndex = array => {
@@ -21,7 +13,6 @@ const recipeRepo = new RecipeRepo(recipeData);
 const currentUser = new User(usersData[getRandomIndex(usersData)]);
 
 currentUser.favoriteRecipes.push(recipeRepo.recipes[3])//for testing only
-currentUser.recipesToCook.push(recipeRepo.recipes[3])//for testing only
 
 //DOM ELEMENTS//
 const navSection = document.querySelector('#navigation');
@@ -60,7 +51,6 @@ const greetUser = () => {
     }, 10000)
 }
 
-//VIEW LIST OF ALL RECIPES
 const displayRecipes = (array) => {
     console.log(array)
     const pickArray = array.recipes || array;
@@ -78,9 +68,6 @@ const displayRecipes = (array) => {
     return cardContainer.innerHTML = allRecipes.join('\n');
 }
 
-//CAROUSEL - "MOST POPULAR RECIPES OF THE WEEK"
-
-//VIEW FULL RECIPE CARD - DIRECTIONS, INGREDIENTS, TOTAL COST
 const addClass = (element, className) => {
     element.classList.add(className || "hidden");
   };
@@ -126,8 +113,6 @@ const getIngredients = recipe => {
 }
 
 
-
-
 //FILTER RECIPES BY TAG, NAME, INGREDIENTS
 const filterRecipes = () => {
     const filterValue = searchFilter.value;
@@ -141,10 +126,10 @@ const filterRecipes = () => {
 
     switch (searchRecipesFilter.value) {
         case 'All Recipes':
-            recipeCards = filterAllRecipes(filterValue, userInput)
+            recipeCards = filterAllRecipes(filterValue, userInput);
             break;
         case 'Favorite Recipes':
-            recipeCards = filterFavoriteRecipes(filterValue, userInput)
+            recipeCards = filterFavoriteRecipes(filterValue, userInput);
             break;
     }
 
@@ -194,22 +179,28 @@ const changeTitleOnFilter = (filterValue, recipeGroup) => {
     return recipeListTitle.innerText = `Currently Viewing: ${recipeGroup} filtered by '${filterValue}'`;
 }
 
+const saveToRecipesToCook = () => {
+    const recipeName = fullCardName.innerText;
+    const recipe = recipeRepo.filterByName(recipeName);
 
+    if (currentUser.recipesToCook.includes(recipe[0])) {
+        alert('This recipe is already saved in your list of recipes to cook!');
+    } else {
+        currentUser.saveRecipe(recipe[0]);
+    }
+}
 
 //EVENT LISTENERS **AT BOTTOM**//
 window.addEventListener('load', function() {
     displayRecipes(recipeRepo.recipes);
 });
 window.addEventListener('load', greetUser);
-
 exitFullCardButton.addEventListener('click', function() {
     addClass(modalContainer);
 })
-
 cardContainer.addEventListener('click', function(event) {
     changeToFullCard(event);
 });
-
 allRecipes.addEventListener('click', function(event) {
     changeTitle(event);
     displayRecipes(recipeRepo.recipes);
@@ -218,23 +209,9 @@ favRecipesButton.addEventListener('click', function(event) {
     changeTitle(event);
     displayRecipes(currentUser.favoriteRecipes);
 })
-
 recipesToCookButton.addEventListener('click', function(event) {
     changeTitle(event);
-    displayRecipes(currentUser.recipesToCook)
+    displayRecipes(currentUser.recipesToCook);
 })
-
 searchButton.addEventListener('click', filterRecipes);
-
-
-
-const saveToRecipesToCook = () => {
-    const recipeName = fullCardName.innerText
-    console.log(recipeName)
-    const recipe = recipeRepo.filterByName(recipeName);
-    console.log(recipe)
-    currentUser.saveRecipe(recipe[0]);
-    console.log(currentUser.recipesToCook)
-}
-
-saveToCook.addEventListener('click', saveToRecipesToCook)
+saveToCook.addEventListener('click', saveToRecipesToCook);
