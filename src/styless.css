@@ -46,6 +46,12 @@ body {
   z-index: 10;
 }
 
+.logo-text {
+  font-size: 2em;
+  position: absolute;
+  margin-top: 2em;
+}
+
 .nav-section {
   height: 86%;
   width: 100%;
