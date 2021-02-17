@@ -47,7 +47,8 @@ const instructionsTitle = document.querySelector('#instructionsTitle');
 const recipeInstructions = document.querySelector('#recipeInstructions');
 const exitFullCardButton = document.querySelector('#exitFullCard');
 const searchButton = document.querySelector('#searchButton');
-const recipeListTitle = document.querySelector('#recipeListTitle')
+const recipeListTitle = document.querySelector('#recipeListTitle');
+const saveToCook = document.querySelector('#saveToCook');
 
 //FUNCTIONS//
 
@@ -209,8 +210,6 @@ cardContainer.addEventListener('click', function(event) {
     changeToFullCard(event);
 });
 
-
-
 allRecipes.addEventListener('click', function(event) {
     changeTitle(event);
     displayRecipes(recipeRepo.recipes);
@@ -227,3 +226,15 @@ recipesToCookButton.addEventListener('click', function(event) {
 
 searchButton.addEventListener('click', filterRecipes);
 
+
+
+const saveToRecipesToCook = () => {
+    const recipeName = fullCardName.innerText
+    console.log(recipeName)
+    const recipe = recipeRepo.filterByName(recipeName);
+    console.log(recipe)
+    currentUser.saveRecipe(recipe[0]);
+    console.log(currentUser.recipesToCook)
+}
+
+saveToCook.addEventListener('click', saveToRecipesToCook)
