@@ -63,6 +63,7 @@ const greetUser = () => {
 
 //VIEW LIST OF ALL RECIPES
 const displayRecipes = (array) => {
+    console.log(array)
     const pickArray = array.recipes || array;
     const allRecipes = pickArray.map(recipe => {
         return `
@@ -131,13 +132,13 @@ const filterRecipes = () => {
     if (searchField.value === '' || searchFilter.value === '' || searchRecipesFilter.value === '') {
         return alert('Please fill in all search fields'); 
     }
-
+    let recipeCards;
     switch (searchRecipesFilter.value) {
-        case '':
-            //call function
+        case 'All Recipes':
+            recipeCards = filterAllRecipes()
             break;
-        case '':
-            //call function
+        case 'Favorite Recipes':
+            recipeCards = filterFavoriteRecipes()
             break;
     }
     // const filterValue = searchFilter.value;
@@ -158,30 +159,47 @@ const filterRecipes = () => {
     //         break;
     // }
     searchField.value = '';
-    return displayRecipes(recipeCards);
+    displayRecipes(recipeCards);
 }
+
+const filterFavoriteRecipes = () => {
+
+    const filterValue = searchFilter.value;
+    const userInput = searchField.value.toLowerCase();
+
+    switch (filterValue) {
+        case 'name':
+            changeTitleOnFilter(userInput, 'Favorite Recipes')//fix for fav rec
+            return currentUser.filterByName(userInput, 'favoriteRecipes')
+        case 'tag':
+            changeTitleOnFilter(userInput, 'Favorite Recipes')//fix for fav rec
+            return currentUser.filterByTag(userInput, 'favoriteRecipes')
+        case 'ingredients':
+            changeTitleOnFilter(userInput, 'Favorite Recipes')//fix for fav rec
+            return currentUser.filterByIngredients(userInput, 'favoriteRecipes')
+    }
+
+}
+
+
 
 
 const filterAllRecipes = () => {
     const filterValue = searchFilter.value;
     const userInput = searchField.value.toLowerCase();
-    let recipeCards = [];
+
     switch (filterValue) {
         case 'name':
-            recipeCards = recipeRepo.filterByName(userInput);
-            changeTitleOnFilter(userInput)
-            break;
+            changeTitleOnFilter(userInput, 'All Recipes')
+            return recipeRepo.filterByName(userInput);
         case 'tag':
-            recipeCards = recipeRepo.filterByTag(userInput);
-            changeTitleOnFilter(userInput)
-            break;
+            changeTitleOnFilter(userInput, 'All Recipes')
+            return recipeRepo.filterByTag(userInput);
         case 'ingredients':
-            recipeCards = recipeRepo.filterByIngredient(userInput);
-            changeTitleOnFilter(userInput)
-            break;
+            changeTitleOnFilter(userInput, 'All Recipes')
+            return recipeRepo.filterByIngredient(userInput);
     }
-    searchField.value = '';
-    return displayRecipes(recipeCards);
+
 }
 
 
@@ -192,8 +210,8 @@ const changeTitle = event => {
     return recipeListTitle.innerText = `Currently Viewing: ${event.target.value}`
 }
 
-const changeTitleOnFilter = filterValue => {
-    return recipeListTitle.innerText = `Currently Viewing: All Recipes filtered by '${filterValue}'`
+const changeTitleOnFilter = (filterValue, recipeGroup) => {
+    return recipeListTitle.innerText = `Currently Viewing: ${recipeGroup} filtered by '${filterValue}'`
 }
 
 //combine display and filter for event lister, on change to input
