@@ -1,7 +1,3 @@
-// const ingredientsData = require('../data/ingredients');
-
-const { find } = require("../data/ingredients");
-
 class Recipe {
   constructor(recipeObject) {
     this.id = recipeObject.id;
