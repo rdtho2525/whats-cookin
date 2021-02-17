@@ -13,7 +13,6 @@ describe('User', () => {
   let user;
   let recipeRepo;
   let recipeSamples;
-  let ingredientSamples;
 
   beforeEach(() => {
     user = new User(usersData[0]);
@@ -182,7 +181,7 @@ describe('User', () => {
             "number": 2
           }
         ],
-        "name": "Farmer\'s Market Flatbread Pizza",
+        "name": "Farmer's Market Flatbread Pizza",
         "tags": [
           "side dish",
           "antipasti",
@@ -496,9 +495,7 @@ describe('User', () => {
 
   it('should be able to filter recipes by name', () => {
     user.favoriteRecipes = recipeRepo.recipes;
-    console.log(user.favoriteRecipes)
     const result = user.filterByName('Reese\'s Pieces Peanut Butter Cookies', 'favoriteRecipes');
-    // console.log(result)
     expect(result[0].name).to.equal('Reese\'s Pieces Peanut Butter Cookies');
     expect(result.length).to.equal(1);
   });
@@ -506,7 +503,7 @@ describe('User', () => {
   it('should be able to filter recipes by tag', () => {
     user.favoriteRecipes = recipeRepo.recipes;
     const result = user.filterByTag('side dish', 'favoriteRecipes');
-    expect(result[0].name).to.equal("Farmer\'s Market Flatbread Pizza");
+    expect(result[0].name).to.equal('Farmer\'s Market Flatbread Pizza');
     expect(result.length).to.equal(3);
   });
 
@@ -519,7 +516,6 @@ describe('User', () => {
 
   it.skip('should be able to check pantry for a recipe\'s necessary ingredients', () => {
     user.recipesToCook = [recipeRepo.recipes[3]];
-    console.log(user.recipesToCook[0].ingredients.length)
     user.pantry = [
     {
       "ingredient": 1001,
@@ -603,7 +599,6 @@ describe('User', () => {
     }];
     const testIngredients = user.checkForIngredients(user.recipesToCook);
     user.findMissingIngredients(testIngredients);
-    console.log(recipe.getIngredentNames(user.pantry))
     expect(user.findMissingIngredients(testIngredients)).to.equal(/*message listing missing ingredient names*/)
   });
 

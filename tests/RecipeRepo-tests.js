@@ -1,6 +1,5 @@
 const RecipeRepo = require('../src/RecipeRepo');
 const chai = require('chai');
-const { filter } = require('../data/ingredients');
 const expect = chai.expect;
 // const recipeData = require('../data/recipes');
 

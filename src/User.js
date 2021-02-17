@@ -81,8 +81,8 @@ class User {
     }
   }
 
-  findMissingIngredients(recipe, ingredientArray) {
-    const result = recipe.getIngredientNames(ingredientArray);
+  findMissingIngredients() {
+    
   }
 
   consumeIngredients() {
