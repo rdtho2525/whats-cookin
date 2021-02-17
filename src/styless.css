@@ -187,6 +187,16 @@ h1 {
   width: 100%;
 }
 
+.save-to-cook {
+  width: 20%;
+  height: 3%;
+  font-size: 1.2em;
+  border-radius: 5px;
+  text-align: center;
+  background-color: lightgrey;
+  margin-left: 79%
+}
+
 .ingredient {
   width: 200px;
 }
