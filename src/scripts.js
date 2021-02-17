@@ -128,93 +128,70 @@ const getIngredients = recipe => {
 
 //FILTER RECIPES BY TAG, NAME, INGREDIENTS
 const filterRecipes = () => {
+    const filterValue = searchFilter.value;
+    let userInput = searchField.value;
 
-    if (searchField.value === '' || searchFilter.value === '' || searchRecipesFilter.value === '') {
+    if (userInput === '' || filterValue === '' || searchRecipesFilter.value === '') {
         return alert('Please fill in all search fields'); 
     }
+    
     let recipeCards;
+
     switch (searchRecipesFilter.value) {
         case 'All Recipes':
-            recipeCards = filterAllRecipes()
+            recipeCards = filterAllRecipes(filterValue, userInput)
             break;
         case 'Favorite Recipes':
-            recipeCards = filterFavoriteRecipes()
+            recipeCards = filterFavoriteRecipes(filterValue, userInput)
             break;
     }
-    // const filterValue = searchFilter.value;
-    // const userInput = searchField.value.toLowerCase();
-    // let recipeCards = [];
-    // switch (filterValue) {
-    //     case 'name':
-    //         recipeCards = recipeRepo.filterByName(userInput);
-    //         changeTitleOnFilter(userInput)
-    //         break;
-    //     case 'tag':
-    //         recipeCards = recipeRepo.filterByTag(userInput);
-    //         changeTitleOnFilter(userInput)
-    //         break;
-    //     case 'ingredients':
-    //         recipeCards = recipeRepo.filterByIngredient(userInput);
-    //         changeTitleOnFilter(userInput)
-    //         break;
-    // }
+
     searchField.value = '';
     displayRecipes(recipeCards);
 }
 
-const filterFavoriteRecipes = () => {
-
-    const filterValue = searchFilter.value;
-    const userInput = searchField.value.toLowerCase();
+const filterFavoriteRecipes = (filterValue, userInput) => {
 
     switch (filterValue) {
         case 'name':
-            changeTitleOnFilter(userInput, 'Favorite Recipes')//fix for fav rec
-            return currentUser.filterByName(userInput, 'favoriteRecipes')
+            changeTitleOnFilter(userInput, 'Favorite Recipes');
+            return currentUser.filterByName(userInput, 'favoriteRecipes');
         case 'tag':
-            changeTitleOnFilter(userInput, 'Favorite Recipes')//fix for fav rec
-            return currentUser.filterByTag(userInput, 'favoriteRecipes')
+            userInput = searchField.value.toLowerCase();
+            changeTitleOnFilter(userInput, 'Favorite Recipes');
+            return currentUser.filterByTag(userInput, 'favoriteRecipes');
         case 'ingredients':
-            changeTitleOnFilter(userInput, 'Favorite Recipes')//fix for fav rec
-            return currentUser.filterByIngredients(userInput, 'favoriteRecipes')
+            userInput = searchField.value.toLowerCase();
+            changeTitleOnFilter(userInput, 'Favorite Recipes');
+            return currentUser.filterByIngredients(userInput, 'favoriteRecipes');
     }
-
 }
 
-
-
-
-const filterAllRecipes = () => {
-    const filterValue = searchFilter.value;
-    const userInput = searchField.value.toLowerCase();
+const filterAllRecipes = (filterValue, userInput) => {
 
     switch (filterValue) {
         case 'name':
-            changeTitleOnFilter(userInput, 'All Recipes')
+            changeTitleOnFilter(userInput, 'All Recipes');
             return recipeRepo.filterByName(userInput);
         case 'tag':
-            changeTitleOnFilter(userInput, 'All Recipes')
+            userInput = searchField.value.toLowerCase();
+            changeTitleOnFilter(userInput, 'All Recipes');
             return recipeRepo.filterByTag(userInput);
         case 'ingredients':
-            changeTitleOnFilter(userInput, 'All Recipes')
+            userInput = searchField.value.toLowerCase();
+            changeTitleOnFilter(userInput, 'All Recipes');
             return recipeRepo.filterByIngredient(userInput);
     }
-
 }
 
-
-
-
-
 const changeTitle = event => {
-    return recipeListTitle.innerText = `Currently Viewing: ${event.target.value}`
+    return recipeListTitle.innerText = `Currently Viewing: ${event.target.value}`;
 }
 
 const changeTitleOnFilter = (filterValue, recipeGroup) => {
-    return recipeListTitle.innerText = `Currently Viewing: ${recipeGroup} filtered by '${filterValue}'`
+    return recipeListTitle.innerText = `Currently Viewing: ${recipeGroup} filtered by '${filterValue}'`;
 }
 
-//combine display and filter for event lister, on change to input
 
 
 //EVENT LISTENERS **AT BOTTOM**//
