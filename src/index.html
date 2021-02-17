@@ -17,9 +17,16 @@
               <button id="favoriteRecipes" class="click" value="Favorite Recipes">Favorite Recipes</button>
 
               <button id="recipesToCook" class="click" value="Recipes to Cook">Recipes to Cook</button>
+              
+              <div class="search-field-container">
+                <input id="searchField" type="text" name="search-field" placeholder="Search for recipes..">
+                <p class="search-instruction">separate multiple search values with commmas</p>
+              </div>
 
-              <input id="searchField" type="text" name="search-field" placeholder="Search for recipes..">
-              <p class="search-instruction">separate multiple search values with commmas</p>
+
+
+              
+              <div>
                 <label for="search-filter">Search by:</label>
                 <select id="searchFilter" class="click" name="search-filter" id="search-filter">
                   <option value="" selected></option>
@@ -27,6 +34,8 @@
                   <option value="tag">Tag</option>
                   <option value="ingredients">Ingredients</option>
                 </select>
+              </div>
+
               <button id="searchButton" class="click" type="submit">Search</button>
 
       </section>
