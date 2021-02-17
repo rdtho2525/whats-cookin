@@ -287,12 +287,23 @@ h1 {
   margin-top: 7px;
   margin-bottom: 7px;
   background-color: #b9c5c7;  /*experiment color*/
-
 }
 
 .recipe-card > img {
   height: 75%;
   width: 100%;
+}
+
+.heart-container {
+  display: flex;
+  justify-content: space-between;
+}
+
+.fav-heart {
+  height: 30px;
+  width: 30px;
+  margin-top: 20%;
+  margin-right: 2%;
 }
 
 .tag {

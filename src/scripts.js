@@ -69,7 +69,11 @@ const displayRecipes = (array) => {
         return `
         <article id="${recipe.id}" class="recipe-card left click">
             <img src="${recipe.image}" alt="${recipe.name}">
+            <div class="heart-container">
             <p id="" class="recipe-name">${recipe.name}</p>
+            
+            <img class="fav-heart" src="../assets/emptyHeart.svg" alt="empty heart">
+            </div>
         </article>`
     });
 
@@ -134,7 +138,7 @@ const filterRecipes = () => {
     if (userInput === '' || filterValue === '' || searchRecipesFilter.value === '') {
         return alert('Please fill in all search fields'); 
     }
-    
+
     let recipeCards;
 
     switch (searchRecipesFilter.value) {
