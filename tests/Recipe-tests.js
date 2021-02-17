@@ -48,11 +48,85 @@ describe('Recipe', () => {
   });
 
   it('should be able to return a list of ingredient names', () => {
-    expect(recipe.getIngredientNames().length).to.equal(recipe.ingredients.length);
+    const ingredients = [
+      {
+        "id": 20081,
+        "name": "wheat flour",
+        "estimatedCostInCents": 142
+      },
+      {
+        "id": 18372,
+        "name": "bicarbonate of soda",
+        "estimatedCostInCents": 582
+      },
+      {
+        "id": 1123,
+        "name": "eggs",
+        "estimatedCostInCents": 472
+      }
+    ]
+    expect(recipe.getIngredientNames(ingredients).length).to.equal(recipe.ingredients.length);
   });
 
   it('should be able to calculate the total cost of ingredients required', () => {
-    expect(recipe.getTotalCostOfIngredients()).to.equal(177.76);
+    const ingredients = [
+      {
+        "id": 20081,
+        "name": "wheat flour",
+        "estimatedCostInCents": 142
+      },
+      {
+        "id": 18372,
+        "name": "bicarbonate of soda",
+        "estimatedCostInCents": 582
+      },
+      {
+        "id": 1123,
+        "name": "eggs",
+        "estimatedCostInCents": 472
+      },
+      {
+        "id": 19335,
+        "name": "sucrose",
+        "estimatedCostInCents": 902
+      },
+      {
+        "id": 19206,
+        "name": "instant vanilla pudding",
+        "estimatedCostInCents": 660
+      },
+      {
+        "id": 19334,
+        "name": "brown sugar",
+        "estimatedCostInCents": 559
+      },
+      {
+        "id": 2047,
+        "name": "salt",
+        "estimatedCostInCents": 280
+      },
+      {
+        "id": 1012047,
+        "name": "fine sea salt",
+        "estimatedCostInCents": 528
+      },
+      {
+        "id": 10019903,
+        "name": "semi sweet chips",
+        "estimatedCostInCents": 253
+      },
+      {
+        "id": 1145,
+        "name": "unsalted butter",
+        "estimatedCostInCents": 617
+      },
+      {
+        "id": 2050,
+        "name": "vanilla",
+        "estimatedCostInCents": 926
+      }
+    ]
+    expect(recipe.getTotalCostOfIngredients(ingredients)).to.equal(177.76);
   });
 
   it('should be able to return recipe\'s instructions', () => {

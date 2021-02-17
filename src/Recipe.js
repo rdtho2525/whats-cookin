@@ -1,5 +1,3 @@
-const ingredientsData = require('../data/ingredients');
-
 class Recipe {
   constructor(recipeObject) {
     this.id = recipeObject.id;
@@ -9,17 +7,23 @@ class Recipe {
     this.name = recipeObject.name;
     this.instructions = recipeObject.instructions;
   }
-  getIngredientNames() {
+  getIngredientNames(ingredientArray) {
     const name = this.ingredients.map(ingredient => {
-      const findName = ingredientsData.find(element => ingredient.id === element.id);
-      return findName.name;
+      const findName = ingredientArray.find(element => ingredient.id === element.id);
+      if (findName) {
+        return findName.name
+      }
     });
     return name
   }
 
-  getTotalCostOfIngredients() {
+  getTotalCostOfIngredients(ingredientArray) {
     const cost = this.ingredients.reduce((totalCost, ingredient) => {
-      const findCost = ingredientsData.find(element => ingredient.id === element.id);
+      const findCost = ingredientArray.find(element => {
+        if (ingredient.id === element.id) {
+          return element.estimatedCostInCents
+        }
+      });
       const estimatedCostInDollars = (findCost.estimatedCostInCents * ingredient.quantity.amount) / 100;
       return totalCost + estimatedCostInDollars
     }, 0)
