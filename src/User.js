@@ -53,7 +53,7 @@ class User {
     const ingredients = searchString.split(',').map(tag => tag.trim());
     
     const recipes = this[list].reduce((matchingRecipes, recipe) => {
-      const recipeIngredients = recipe.getIngredientNames();
+      const recipeIngredients = recipe.getIngredientNames(this[list]);
       ingredients.forEach(ingredientName => {
         if (recipeIngredients.includes(ingredientName)) {
           matchingRecipes.push(recipe);
