@@ -21,6 +21,7 @@ const recipesToCookButton = document.querySelector('#recipesToCook');
 const userSearch = document.querySelector('#userSearch');
 const searchField = document.querySelector('#searchField')
 const searchFilter = document.querySelector('#searchFilter');
+const searchRecipesFilter = document.querySelector('#searchRecipesFilter');
 const landingPage = document.querySelector('#landingPage');
 const userGreeting = document.querySelector('#userGreeting');
 const recentlyViewRecipes = document.querySelector('#recentlyViewedRecipes');
@@ -127,37 +128,62 @@ const getIngredients = recipe => {
 //FILTER RECIPES BY TAG, NAME, INGREDIENTS
 const filterRecipes = () => {
 
-    if (searchField.value === '' || searchFilter.value === '') {
+    if (searchField.value === '' || searchFilter.value === '' || searchRecipesFilter.value === '') {
         return alert('Please fill in all search fields'); 
     }
 
+    switch (searchRecipesFilter.value) {
+        case '':
+            //call function
+            break;
+        case '':
+            //call function
+            break;
+    }
+    // const filterValue = searchFilter.value;
+    // const userInput = searchField.value.toLowerCase();
+    // let recipeCards = [];
+    // switch (filterValue) {
+    //     case 'name':
+    //         recipeCards = recipeRepo.filterByName(userInput);
+    //         changeTitleOnFilter(userInput)
+    //         break;
+    //     case 'tag':
+    //         recipeCards = recipeRepo.filterByTag(userInput);
+    //         changeTitleOnFilter(userInput)
+    //         break;
+    //     case 'ingredients':
+    //         recipeCards = recipeRepo.filterByIngredient(userInput);
+    //         changeTitleOnFilter(userInput)
+    //         break;
+    // }
+    searchField.value = '';
+    return displayRecipes(recipeCards);
+}
+
+
+const filterAllRecipes = () => {
     const filterValue = searchFilter.value;
     const userInput = searchField.value.toLowerCase();
     let recipeCards = [];
     switch (filterValue) {
         case 'name':
-            console.log('this name')
             recipeCards = recipeRepo.filterByName(userInput);
             changeTitleOnFilter(userInput)
             break;
         case 'tag':
-            console.log('this tag')
             recipeCards = recipeRepo.filterByTag(userInput);
             changeTitleOnFilter(userInput)
             break;
         case 'ingredients':
-            console.log('this ingredient')
             recipeCards = recipeRepo.filterByIngredient(userInput);
             changeTitleOnFilter(userInput)
             break;
-        // default:
-        //     console.log('keep trying');
-        //     recipeCards = recipeRepo.recipes;////remove this block?
-        //     break;
     }
     searchField.value = '';
     return displayRecipes(recipeCards);
 }
+
 
 
 
