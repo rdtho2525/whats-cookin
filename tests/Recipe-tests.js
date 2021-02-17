@@ -68,7 +68,7 @@ describe('Recipe', () => {
     expect(recipe.getIngredientNames(ingredients).length).to.equal(recipe.ingredients.length);
   });
 
-  it.skip('should be able to calculate the total cost of ingredients required', () => {
+  it('should be able to calculate the total cost of ingredients required', () => {
     const ingredients = [
       {
         "id": 20081,
@@ -84,6 +84,46 @@ describe('Recipe', () => {
         "id": 1123,
         "name": "eggs",
         "estimatedCostInCents": 472
+      },
+      {
+        "id": 19335,
+        "name": "sucrose",
+        "estimatedCostInCents": 902
+      },
+      {
+        "id": 19206,
+        "name": "instant vanilla pudding",
+        "estimatedCostInCents": 660
+      },
+      {
+        "id": 19334,
+        "name": "brown sugar",
+        "estimatedCostInCents": 559
+      },
+      {
+        "id": 2047,
+        "name": "salt",
+        "estimatedCostInCents": 280
+      },
+      {
+        "id": 1012047,
+        "name": "fine sea salt",
+        "estimatedCostInCents": 528
+      },
+      {
+        "id": 10019903,
+        "name": "semi sweet chips",
+        "estimatedCostInCents": 253
+      },
+      {
+        "id": 1145,
+        "name": "unsalted butter",
+        "estimatedCostInCents": 617
+      },
+      {
+        "id": 2050,
+        "name": "vanilla",
+        "estimatedCostInCents": 926
       }
     ]
     expect(recipe.getTotalCostOfIngredients(ingredients)).to.equal(177.76);

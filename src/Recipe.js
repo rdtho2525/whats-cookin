@@ -23,7 +23,11 @@ class Recipe {
 
   getTotalCostOfIngredients(ingredientArray) {
     const cost = this.ingredients.reduce((totalCost, ingredient) => {
-      const findCost = ingredientArray.find(element => ingredient.id === element.id);
+      const findCost = ingredientArray.find(element => {
+        if (ingredient.id === element.id) {
+          return element.estimatedCostInCents
+        }
+      });
       const estimatedCostInDollars = (findCost.estimatedCostInCents * ingredient.quantity.amount) / 100;
       return totalCost + estimatedCostInDollars
     }, 0)
