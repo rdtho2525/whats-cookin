@@ -1,4 +1,3 @@
-// const recipeData = require('../data/recipes');
 const Recipe = require('../src/Recipe');
 
 class RecipeRepo {
