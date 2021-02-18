@@ -31,12 +31,11 @@ open src/index.html
 
 ## Testing
 
-**update testing instructions here**
 
-In order to run the tests, please first comment out xxxx in xxxxx, and then run:
+In order to run the tests, please first comment the first line of RecipeRepo.js back in, and then run:
 
 ```
-npm run tests ***is this right?***
+npm run tests/**file name**
 ```
 
 
