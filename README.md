@@ -1,4 +1,63 @@
-# What's Cookin'? Starter Kit 
+# What's Cookin'?
+
+What's Cookin' is a Mod2 project in the [Turing School of Software and Design](https://turing.io/). **add description of app**
+
+[Original Project Specifications and Game Rules](https://frontend.turing.io/projects/whats-cookin.html)
+
+
+## Demo of the program
+![screenshot](./assets/flashcards.gif)
+
+
+## Setup
+
+Clone down the repo:
+
+```
+git clone git@github.com:rdtho2525/whats-cookin.git
+```
+
+Once you have cloned the repo, change into the directory and install the library dependencies. Run:
+
+```
+npm install
+```
+
+Run the below in the terminal to open the application in a browser: 
+
+```
+open src/index.html
+```
+
+## Contributors
+##### Jeff Shepherd: [GitHub](https://github.com/JeffShepherd)
+
+##### Reggie Thompson: [GitHub](https://github.com/rdtho2525)
+
+
+## Programming Languages
+  <img src="https://img.shields.io/badge/javascript%20-%23323330.svg?&style=for-the-badge&logo=javascript&logoColor=%23F7DF1E"/><img src="https://img.shields.io/badge/css3%20-%231572B6.svg?&style=for-the-badge&logo=css3&logoColor=white"/><img src="https://img.shields.io/badge/html5%20-%23E34F26.svg?&style=for-the-badge&logo=html5&logoColor=white"/>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 The details of this project are outlined in the <a href="https://frontend.turing.io/projects/whats-cookin.html" target="\__blank">project spec</a>.
 
