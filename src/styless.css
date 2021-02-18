@@ -46,6 +46,12 @@ body {
   z-index: 10;
 }
 
+.logo-text {
+  font-size: 2em;
+  position: absolute;
+  margin-top: 2em;
+}
+
 .nav-section {
   height: 86%;
   width: 100%;
@@ -179,6 +185,16 @@ h1 {
 .full-card-image {
   height: 437px;
   width: 100%;
+}
+
+.save-to-cook {
+  width: 20%;
+  height: 3%;
+  font-size: 1.2em;
+  border-radius: 5px;
+  text-align: center;
+  background-color: lightgrey;
+  margin-left: 79%
 }
 
 .ingredient {
