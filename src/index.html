@@ -2,7 +2,7 @@
 <html>
   <head>
     <meta charset="UTF-8">
-    <title>Whats Cookin</title>
+    <title>Whats Cookin'</title>
     <link rel="stylesheet" href="./styless.css">
   </head>
   <body>
@@ -10,6 +10,7 @@
     <div class="page-left">
       <nav id="navigation" class="nav-section">
         <img src="../assets/emptyHeart.svg" alt="What's Cookin' Logo">
+        <p class="logo-text">WC</p>
 
         <section class="nav-links">
 
@@ -51,7 +52,7 @@
     </div>
     
     <div class="page-right">
-        <div id="modalContainer" class="modal-container hidden"> <!-- unhide to test -->
+        <div id="modalContainer" class="modal-container hidden">
           <section id="fullRecipeCard" class="full-recipe-card">
             <button id="exitFullCard" class="exit-full-card click">X</button>
             <img id="fullCardImage" src="" alt="">
@@ -59,6 +60,9 @@
               <p id="fullCardName"></p>
               <p id="totalCost"></p>
             </div>
+
+            <button id="saveToCook" class="save-to-cook click">add to my recipes to cook</button>
+
             <p id="ingredientsTitle" class="recipe-name">Ingredients:</p>
             <ul id="ingredientsNeeded" class="inside ingredient-items full-card-text">
             </ul>
