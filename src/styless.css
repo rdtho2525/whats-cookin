@@ -15,7 +15,6 @@ Misc */
 @import url("https://fonts.googleapis.com/css2?family=Just+Another+Hand&display=swap");
 
 * {
-  /* border: 1px solid red; */
   box-sizing: border-box;
   margin: 0;
   padding: 0;
@@ -36,7 +35,6 @@ body {
 .page-left {
   height: 100vh;
   width: 25%;
-  /* position: relative; */
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -124,11 +122,26 @@ button {
 }
 
 .search-filter {
-  width: 90px; /* fix search by box as this update made it stack*/
+  width: 90px;
+}
+
+.nav-icon {
+  display: none;
+}
+
+.nav1,
+.nav2,
+.nav3 {
+  height: 5px;
+  width: 35px;
+  display: flex;
+  align-content: flex-end;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  background-color: black;
 }
 
 /* LANDING PAGE */
-
 header {
   text-align: center;
 }
@@ -161,20 +174,20 @@ h1 {
   width: 656px;
   margin-left: 18vw;
   border: 1px solid black;
-  box-shadow: hsla(0, 0, 0, 0.5);
   background-color: white;
+  box-shadow: hsla(0, 0, 0, 0.5);
   overflow: scroll;
 }
 
 .exit-full-card {
   height: 35px;
   width: 35px;
+  align-items: center;
+  position: absolute;
   background-color: black;
   color: white;
-  font-size: 1.4em;
-  align-items: center;
   border-radius: 5px;
-  position: absolute;
+  font-size: 1.4em;
   transform: translate(1700%, 10%);
 }
 
@@ -188,13 +201,13 @@ h1 {
 }
 
 .save-to-cook {
-  width: 20%;
   height: 3%;
-  font-size: 1.2em;
-  border-radius: 5px;
-  text-align: center;
+  width: 20%;
   background-color: lightgrey;
-  margin-left: 79%
+  margin-left: 79%;
+  border-radius: 5px;
+  font-size: 1.2em;
+  text-align: center;
 }
 
 .ingredient {
@@ -245,7 +258,6 @@ h1 {
 .center-piece {
   height: 52%;
   width: 650px;
-  /* max-height: 55%; */
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
@@ -364,36 +376,18 @@ h1 {
 }
 
 .dimmed:after {
-  content: " ";
-  z-index: 10;
+  height: 100%;
   display: block;
   position: absolute;
-  height: 100%;
   top: 0;
   left: 0;
   right: 0;
   background: rgba(0, 0, 0, 0.5);
+  content: " ";
+  z-index: 10;
 }
 
 /* MISCELLANEOUS */
-.nav-icon {
-  /* width: 10px; */
-  display: none;
-}
-
-.nav1,
-.nav2,
-.nav3 {
-  height: 5px;
-  width: 35px;
-  display: flex;
-  align-content: flex-end;
-  margin-top: 5px;
-  margin-bottom: 5px;
-  margin-right: -100px;
-  background-color: black;
-}
-
 .click {
   cursor: pointer;
 }
@@ -408,15 +402,13 @@ h1 {
     flex-direction: column;
   }
 
-  .center-piece {
-    width: 90%;
+  img.logo {
+    height: 100px;
+    width: 100px;
   }
 
-  .card-container {
-    width: 100%;
-    display: block;
-    margin: 0 auto;
-    flex-wrap: wrap;
+  .logo-text {
+    margin-top: 28px;
   }
 
   .nav-icon {
@@ -428,11 +420,8 @@ h1 {
     background-color: white;
   }
 
-  .recipe-card {
-    width: 100%;
-    margin: 0 auto;
-    margin-top: 10px;
-    margin-bottom: 10px;
+  .mobile-hidden {
+    display: none;
   }
 
   .page-left {
@@ -443,12 +432,26 @@ h1 {
     z-index: 1;
   }
 
-  .mobile-hidden {
-    display: none;
-  }
-
   .page-right {
     width: 100%;
+  }
+
+  .center-piece {
+    width: 90%;
+  }
+
+  .card-container {
+    width: 100%;
+    display: block;
+    margin: 0 auto;
+    flex-wrap: wrap;
+  }
+
+  .recipe-card {
+    width: 100%;
+    margin: 0 auto;
+    margin-top: 10px;
+    margin-bottom: 10px;
   }
 
   .full-recipe-card {
@@ -459,19 +462,15 @@ h1 {
     overflow: scroll;
   }
 
-  .exit-full-card {
-    transform: translate(850%, 10%);
-  }
-
-  img.logo {
-    height: 100px;
-    width: 100px;
-  }
   .full-card-image {
     height: 250px;
   }
 
   ul {
     overflow: auto;
+  }
+
+  .exit-full-card {
+    transform: translate(850%, 10%);
   }
 }
