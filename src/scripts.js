@@ -48,6 +48,9 @@ const recipeInstructions = document.querySelector('#recipeInstructions');
 const exitFullCardButton = document.querySelector('#exitFullCard');
 const searchButton = document.querySelector('#searchButton');
 const recipeListTitle = document.querySelector('#recipeListTitle')
+const navIcon1 = document.querySelector('#navIcon1');
+const navIcon2 = document.querySelector('#navIcon2');
+const navContainer = document.querySelector('#navContainer');
 
 //FUNCTIONS//
 
@@ -227,3 +230,10 @@ recipesToCookButton.addEventListener('click', function(event) {
 
 searchButton.addEventListener('click', filterRecipes);
 
+navIcon1.addEventListener('click', function() {
+    navContainer.classList.toggle('mobile-hidden');
+});
+
+navIcon2.addEventListener('click', function() {
+    navContainer.classList.toggle('mobile-hidden');
+});
