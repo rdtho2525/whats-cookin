@@ -12,29 +12,22 @@ const getRandomIndex = array => {
 const recipeRepo = new RecipeRepo(recipeData);
 const currentUser = new User(usersData[getRandomIndex(usersData)]);
 
-currentUser.favoriteRecipes.push(recipeRepo.recipes[3])//for testing only
+currentUser.favoriteRecipes.push(recipeRepo.recipes[3]) //for testing only
 
 //DOM ELEMENTS//
-const navSection = document.querySelector('#navigation');
+const allRecipes = document.querySelector('#allRecipes');
 const favRecipesButton = document.querySelector('#favoriteRecipes');
 const recipesToCookButton = document.querySelector('#recipesToCook');
-const userSearch = document.querySelector('#userSearch');
 const searchField = document.querySelector('#searchField')
 const searchFilter = document.querySelector('#searchFilter');
 const searchRecipesFilter = document.querySelector('#searchRecipesFilter');
-const landingPage = document.querySelector('#landingPage');
 const userGreeting = document.querySelector('#userGreeting');
-const recentlyViewRecipes = document.querySelector('#recentlyViewedRecipes');
-const centerPieceCard = document.querySelector('#centerPieceCard');
 const cardContainer = document.querySelector('#cardContainer');
 const modalContainer = document.querySelector('#modalContainer');
-const fullRecipeCard = document.querySelector('#fullRecipeCard');
 const fullCardImage = document.querySelector('#fullCardImage');
 const fullCardName = document.querySelector('#fullCardName');
 const totalCost = document.querySelector('#totalCost');
-const ingredientsTitle = document.querySelector('#ingredientsTitle');
 const ingredientsNeeded = document.querySelector('#ingredientsNeeded');
-const instructionsTitle = document.querySelector('#instructionsTitle');
 const recipeInstructions = document.querySelector('#recipeInstructions');
 const exitFullCardButton = document.querySelector('#exitFullCard');
 const searchButton = document.querySelector('#searchButton');
@@ -46,7 +39,7 @@ const saveToCook = document.querySelector('#saveToCook');
 const greetUser = () => {
     const firstName = currentUser.name.split(' ', 2);
     userGreeting.textContent = `Welcome to What's Cookin', ${firstName[0]}!`;
-    setTimeout(function() {
+    setTimeout(function () {
         addClass(userGreeting);
     }, 10000)
 }
@@ -70,11 +63,11 @@ const displayRecipes = (array) => {
 
 const addClass = (element, className) => {
     element.classList.add(className || "hidden");
-  };
-  
+};
+
 const removeClass = (element, className) => {
     element.classList.remove(className || "hidden");
-  };
+};
 
 const changeToFullCard = event => {
     let recipe;
@@ -119,7 +112,7 @@ const filterRecipes = () => {
     let userInput = searchField.value;
 
     if (userInput === '' || filterValue === '' || searchRecipesFilter.value === '') {
-        return alert('Please fill in all search fields'); 
+        return alert('Please fill in all search fields');
     }
 
     let recipeCards;
@@ -191,25 +184,27 @@ const saveToRecipesToCook = () => {
 }
 
 //EVENT LISTENERS **AT BOTTOM**//
-window.addEventListener('load', function() {
+window.addEventListener('load', function () {
     displayRecipes(recipeRepo.recipes);
 });
 window.addEventListener('load', greetUser);
-exitFullCardButton.addEventListener('click', function() {
+exitFullCardButton.addEventListener('click', function () {
     addClass(modalContainer);
 })
-cardContainer.addEventListener('click', function(event) {
+cardContainer.addEventListener('click', function (event) {
     changeToFullCard(event);
 });
-allRecipes.addEventListener('click', function(event) {
+
+allRecipes.addEventListener('click', function (event) {
     changeTitle(event);
     displayRecipes(recipeRepo.recipes);
 })
-favRecipesButton.addEventListener('click', function(event) {
+
+favRecipesButton.addEventListener('click', function (event) {
     changeTitle(event);
     displayRecipes(currentUser.favoriteRecipes);
 })
-recipesToCookButton.addEventListener('click', function(event) {
+recipesToCookButton.addEventListener('click', function (event) {
     changeTitle(event);
     displayRecipes(currentUser.recipesToCook);
 })
