@@ -31,6 +31,9 @@ const ingredientsNeeded = document.querySelector('#ingredientsNeeded');
 const recipeInstructions = document.querySelector('#recipeInstructions');
 const exitFullCardButton = document.querySelector('#exitFullCard');
 const searchButton = document.querySelector('#searchButton');
+const navIcon1 = document.querySelector('#navIcon1');
+const navIcon2 = document.querySelector('#navIcon2');
+const navContainer = document.querySelector('#navContainer');
 const recipeListTitle = document.querySelector('#recipeListTitle');
 const saveToCook = document.querySelector('#saveToCook');
 
@@ -209,4 +212,13 @@ recipesToCookButton.addEventListener('click', function (event) {
     displayRecipes(currentUser.recipesToCook);
 })
 searchButton.addEventListener('click', filterRecipes);
+
+navIcon1.addEventListener('click', function() {
+    navContainer.classList.toggle('mobile-hidden');
+});
+
+navIcon2.addEventListener('click', function() {
+    navContainer.classList.toggle('mobile-hidden');
+});
+
 saveToCook.addEventListener('click', saveToRecipesToCook);

@@ -93,7 +93,7 @@ button {
   flex-direction: column;
   justify-content: space-around;
   height: 40%;
-  margin-top: 10%
+  margin-top: 10%;
 }
 
 .search-field-container {
@@ -120,7 +120,7 @@ button {
 }
 
 .search-label {
-  font-size: .7em;
+  font-size: 0.7em;
 }
 
 .search-filter {
@@ -178,11 +178,11 @@ h1 {
   transform: translate(1700%, 10%);
 }
 
-.exit-full-card:hover{
+.exit-full-card:hover {
   background-color: grey;
 }
 
-#fullCardImage {
+.full-card-image {
   height: 437px;
   width: 100%;
 }
@@ -233,6 +233,7 @@ h1 {
 
 .landing-page {
   height: 100%;
+  min-height: 800px;
   width: 100%;
   display: flex;
   flex-direction: column;
@@ -302,7 +303,7 @@ h1 {
   justify-content: flex-start;
   margin-top: 7px;
   margin-bottom: 7px;
-  background-color: #b9c5c7;  /*experiment color*/
+  background-color: #b9c5c7; /*experiment color*/
 }
 
 .recipe-card > img {
@@ -350,11 +351,10 @@ h1 {
   font-size: 1.5em;
 }
 
-
 .search-instruction {
   font-size: 0.1em;
   margin-top: -5px;
-  font-family: 'Times New Roman', Times, serif;
+  font-family: "Times New Roman", Times, serif;
   white-space: nowrap;
 }
 
@@ -376,6 +376,23 @@ h1 {
 }
 
 /* MISCELLANEOUS */
+.nav-icon {
+  /* width: 10px; */
+  display: none;
+}
+
+.nav1,
+.nav2,
+.nav3 {
+  height: 5px;
+  width: 35px;
+  display: flex;
+  align-content: flex-end;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  margin-right: -100px;
+  background-color: black;
+}
 
 .click {
   cursor: pointer;
@@ -383,4 +400,78 @@ h1 {
 
 .hidden {
   display: none;
+}
+
+/* MEDIA QUERIES */
+@media only screen and (max-width: 375px) {
+  body {
+    flex-direction: column;
+  }
+
+  .center-piece {
+    width: 90%;
+  }
+
+  .card-container {
+    width: 100%;
+    display: block;
+    margin: 0 auto;
+    flex-wrap: wrap;
+  }
+
+  .nav-icon {
+    width: 100%;
+    display: block;
+  }
+
+  .nav-white {
+    background-color: white;
+  }
+
+  .recipe-card {
+    width: 100%;
+    margin: 0 auto;
+    margin-top: 10px;
+    margin-bottom: 10px;
+  }
+
+  .page-left {
+    height: 500px;
+    width: 100%;
+    justify-content: flex-start;
+    position: fixed;
+    z-index: 1;
+  }
+
+  .mobile-hidden {
+    display: none;
+  }
+
+  .page-right {
+    width: 100%;
+  }
+
+  .full-recipe-card {
+    height: 600px;
+    width: 90%;
+    justify-self: center;
+    margin: 0 auto;
+    overflow: scroll;
+  }
+
+  .exit-full-card {
+    transform: translate(850%, 10%);
+  }
+
+  img.logo {
+    height: 100px;
+    width: 100px;
+  }
+  .full-card-image {
+    height: 250px;
+  }
+
+  ul {
+    overflow: auto;
+  }
 }
