@@ -6,7 +6,7 @@ What's Cookin' is a Mod2 paired project in the [Turing School of Software and De
 
 
 ## Demo of the program
-![screenshot](./assets/flashcards.gif)
+![screenshot](./assets/gifwhatscookin.gif)
 
 
 ## Setup
