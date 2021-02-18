@@ -35,7 +35,7 @@ open src/index.html
 In order to run the tests, please first comment the first line of RecipeRepo.js back in, and then run:
 
 ```
-npm run tests/**file name**
+npm test tests/**file name**
 ```
 
 
