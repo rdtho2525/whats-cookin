@@ -1,10 +1,3 @@
-//GLOBAL VARIABLES//
-// const Recipe = require('../src/Recipe');
-// const User = require('../src/User');
-// const RecipeRepo = require('../src/RecipeRepo');
-
-
-
 const getRandomIndex = array => {
     return Math.floor(Math.random() * array.length)
 }
@@ -12,9 +5,6 @@ const getRandomIndex = array => {
 const recipeRepo = new RecipeRepo(recipeData);
 const currentUser = new User(usersData[getRandomIndex(usersData)]);
 
-currentUser.favoriteRecipes.push(recipeRepo.recipes[3]) //for testing only
-
-//DOM ELEMENTS//
 const allRecipes = document.querySelector('#allRecipes');
 const favRecipesButton = document.querySelector('#favoriteRecipes');
 const recipesToCookButton = document.querySelector('#recipesToCook');
@@ -37,8 +27,6 @@ const navContainer = document.querySelector('#navContainer');
 const recipeListTitle = document.querySelector('#recipeListTitle');
 const saveToCook = document.querySelector('#saveToCook');
 
-//FUNCTIONS//
-
 const greetUser = () => {
     const firstName = currentUser.name.split(' ', 2);
     userGreeting.textContent = `Welcome to What's Cookin', ${firstName[0]}!`;
@@ -48,7 +36,7 @@ const greetUser = () => {
 }
 
 const displayRecipes = (array) => {
-    console.log(array)
+
     const pickArray = array.recipes || array;
     const allRecipes = pickArray.map(recipe => {
         return `
@@ -108,8 +96,6 @@ const getIngredients = recipe => {
     return result.join('\n');
 }
 
-
-//FILTER RECIPES BY TAG, NAME, INGREDIENTS
 const filterRecipes = () => {
     const filterValue = searchFilter.value;
     let userInput = searchField.value;
@@ -186,14 +172,15 @@ const saveToRecipesToCook = () => {
     }
 }
 
-//EVENT LISTENERS **AT BOTTOM**//
 window.addEventListener('load', function () {
     displayRecipes(recipeRepo.recipes);
 });
+
 window.addEventListener('load', greetUser);
 exitFullCardButton.addEventListener('click', function () {
     addClass(modalContainer);
 })
+
 cardContainer.addEventListener('click', function (event) {
     changeToFullCard(event);
 });
@@ -207,10 +194,12 @@ favRecipesButton.addEventListener('click', function (event) {
     changeTitle(event);
     displayRecipes(currentUser.favoriteRecipes);
 })
+
 recipesToCookButton.addEventListener('click', function (event) {
     changeTitle(event);
     displayRecipes(currentUser.recipesToCook);
 })
+
 searchButton.addEventListener('click', filterRecipes);
 
 navIcon1.addEventListener('click', function() {
