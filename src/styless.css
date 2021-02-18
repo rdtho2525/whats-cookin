@@ -15,7 +15,7 @@ Misc */
 @import url("https://fonts.googleapis.com/css2?family=Just+Another+Hand&display=swap");
 
 * {
-  border: 1px solid red;
+  /* border: 1px solid red; */
   box-sizing: border-box;
   margin: 0;
   padding: 0;
@@ -176,7 +176,7 @@ h1 {
   background-color: grey;
 }
 
-#fullCardImage {
+.full-card-image {
   height: 437px;
   width: 100%;
 }
@@ -387,6 +387,10 @@ h1 {
 
 /* MEDIA QUERIES */
 @media only screen and (max-width: 375px) {
+  body {
+    flex-direction: column;
+  }
+
   .center-piece {
     width: 90%;
   }
@@ -398,6 +402,15 @@ h1 {
     flex-wrap: wrap;
   }
 
+  .nav-icon {
+    width: 100%;
+    display: block;
+  }
+
+  .nav-white {
+    background-color: white;
+  }
+
   .recipe-card {
     width: 100%;
     margin: 0 auto;
@@ -406,10 +419,42 @@ h1 {
   }
 
   .page-left {
+    height: 500px;
+    width: 100%;
+    justify-content: flex-start;
+    position: fixed;
+    z-index: 1;
+  }
+
+  .mobile-hidden {
     display: none;
   }
 
   .page-right {
-    width: 100%;  
+    width: 100%;
+  }
+
+  .full-recipe-card {
+    height: 600px;
+    width: 90%;
+    justify-self: center;
+    margin: 0 auto;
+    overflow: scroll;
+  }
+
+  .exit-full-card {
+    transform: translate(850%, 10%);
+  }
+
+  img.logo {
+    height: 100px;
+    width: 100px;
+  }
+  .full-card-image {
+    height: 250px;
+  }
+
+  ul {
+    overflow: auto;
   }
 }
