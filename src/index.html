@@ -7,9 +7,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">  
   </head>
   <body>
-    <div class="page-left">
+    <div id="navContainer" class="page-left mobile-hidden">
+      <div id="navIcon1" class="nav-icon">
+        <div class="nav1 nav-white"></div>
+        <div class="nav2 nav-white"></div>
+        <div class="nav3 nav-white"></div>
+      </div>
       <nav id="navigation" class="nav-section">
-        <img src="../assets/emptyHeart.svg" alt="What's Cookin' Logo">
+        <img id="logo" class="logo" src="../assets/emptyHeart.svg" alt="What's Cookin' Logo">
         <section class="nav-links">
           <button id="allRecipes" class="click" value="All Recipes">All Recipes</button>
           <button id="favoriteRecipes" class="click" value="Favorite Recipes">Favorite Recipes</button>
@@ -42,7 +47,7 @@
       </nav>
     </div>
     <div class="page-right">
-      <div id="navIcon" class="hav-icon">
+      <div id="navIcon2" class="nav-icon">
         <div class="nav1"></div>
         <div class="nav2"></div>
         <div class="nav3"></div>
@@ -50,7 +55,7 @@
       <div id="modalContainer" class="modal-container hidden"> <!-- unhide to test -->
         <section id="fullRecipeCard" class="full-recipe-card">
           <button id="exitFullCard" class="exit-full-card click">X</button>
-          <img id="fullCardImage" src="" alt="">
+          <img id="fullCardImage" class="full-card-image" src="" alt="">
           <div class="recipe-name space-between">
             <p id="fullCardName"></p>
             <p id="totalCost"></p>
@@ -74,8 +79,8 @@
           <article class="carousel-card">
             <aside id="centerPieceCard" class="center-piece-banner">
               <p id="" class="recipe-name">Thai Chicken Tenders with Broiled Pineapple Slaw</p>
-                <ul class="list tag hero-tags">
-                  <li class="first-tag">#Tags:</li>
+                <ul class="list tag hero-tags mobile-hidden">
+                  <li class="first-tag ">#Tags:</li>
                   <li>lunch</li>
                   <li>main course</li>
                   <li>main dish</li>
